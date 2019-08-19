@@ -14,7 +14,8 @@ def menu_markup():
     markup.add(InlineKeyboardButton("Tdy's Bf 🍞", callback_data="cb_tdy_bf"),
                InlineKeyboardButton("Tdy's Dinz 🍱", callback_data="cb_tdy_dn"),
                InlineKeyboardButton("Tmr's Bf 🍞", callback_data="cb_tmr_bf"),
-               InlineKeyboardButton("Tmr's Dinz 🍱", callback_data="cb_tmr_dn"))
+               InlineKeyboardButton("Tmr's Dinz 🍱", callback_data="cb_tmr_dn"),
+               InlineKeyboardButton("Home", callback_data="cb_home"))
     return markup
 
 def faq_markup():

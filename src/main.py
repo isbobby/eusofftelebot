@@ -61,11 +61,17 @@ def callback_query(call):
     #get breakfast menu for today and tomorrow
     if call.data == "cb_tdy_bf":
         bot.send_message(call.message.chat.id, get_today_breakfast())
-    if call.data == "cb_tmr_bf":
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+    elif call.data == "cb_tmr_bf":
         bot.send_message(call.message.chat.id, get_tmr_breakfast())
-    if call.data == "cb_tdy_dn":
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+    elif call.data == "cb_tdy_dn":
         bot.send_message(call.message.chat.id, text=get_today_dinner(), parse_mode="MARKDOWN")
-    if call.data == "cb_tmr_dn":
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+    elif call.data == "cb_tmr_dn":
         bot.send_message(call.message.chat.id, get_tmr_dinner())
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+    elif call.data == "cb_home":
+        send_welcome(call.message)
 
 bot.polling()

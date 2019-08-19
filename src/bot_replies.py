@@ -20,7 +20,7 @@ bot_replies = {
         u'We appreciate all kinds of feedback!',
     
     'mealbot_landing':
-        u"Hungry? Let's get started! (use /start to go back to the home page)",
+        u"Choose to view menu",
     
     'calendar_landing':
         u"Use these commands to navigate through the calendar (use /start to go back to the home page)"
