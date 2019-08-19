@@ -2,10 +2,11 @@
 
 bot_replies = {
     'welcome':
-        u'Hello there! I am your Eusoff Telegram Bot.\n'
-        u'\nUse /mealbot to view dining hall menu',
+        u'Hello there! I am your Eusoff Telegram Bot 🦅.\n'
+        u'\nUse /mealbot to view dining hall menu 🍗',
         #u'\nUse /FAQ to view FAQ regarding hall matters'
         #u'\nUse /Calendar to view hall calendar'
+        #u'\nUse /laundary to view laundary machine status'
 
     'info':
         u'Hello there!\n'
