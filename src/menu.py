@@ -54,7 +54,7 @@ def get_tmr_dinner():
         string += item + '\n'
     
     #to do: bold these headers
-    words_to_bold=['Meat', 'Side Dish', 'Speical', 'Desert']
+    words_to_bold=['Meat', 'Side Dish', 'Special', 'Desert']
 
     return string
 
@@ -68,7 +68,7 @@ def get_today_dinner():
         string += item + '\n'
     
     #to do: bold these headers
-    words_to_bold=['Meat', 'Side Dish', 'Speical', 'Desert']
+    words_to_bold=['Meat', 'Side Dish', 'Special', 'Desert']
 
     return string
 

@@ -16,3 +16,9 @@ def menu_markup():
                InlineKeyboardButton("Tmr's Bf 🍞", callback_data="cb_tmr_bf"),
                InlineKeyboardButton("Tmr's Dinz 🍱", callback_data="cb_tmr_dn"))
     return markup
+
+def faq_markup():
+    return faq_markup
+
+def calendar_markup():
+    return faq_markup

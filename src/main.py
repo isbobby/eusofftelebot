@@ -7,7 +7,7 @@ import datetime as dt
 #local imports
 from bot_replies import bot_replies
 from menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
-from markup import menu_markup
+from markup import menu_markup, calendar_markup, faq_markup
 
 #configuration
 TOKEN = '676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0'
@@ -31,12 +31,20 @@ def main_requests(message):
     #this if statement brings users to mealbot commands
     if message.text == "mealbot" or message.text =="/mealbot":
         bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+    
+    #below are the additional features to be added
+    elif message.text == "FAQ" or message.text =="/FAQ":
+        bot.send_message(message.chat.id, bot_replies['faq_landing'])
+
+    elif message.text == "Calendar" or message.text =="/Calendar":
+        bot.send_message(message.chat.id, bot_replies['calendar_landing'])
+
     else: 
         bot.send_message(
         chat_id, "There is no such function. Please try again"
     )
 
-#Handles the subsequent queries from /mealbot
+#Handles the subsequent callback queries from /mealbot, view the markup callbacks in markup.py
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     date = dt.datetime.fromtimestamp(call.message.date)
