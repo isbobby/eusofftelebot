@@ -24,7 +24,7 @@ def get_today_breakfast():
 
     #if the menu is empty, return a string to notify there is no breakfast
     if bool(raw_dict) == False:
-        return "There is no breakfast this day" 
+        return "There is no hall breakfast this day\n" 
     
     #else put all the items into string forms and pass to telegram
     raw_list = [ item for item in raw_dict.values()]
@@ -37,7 +37,7 @@ def get_today_breakfast():
 def get_tmr_breakfast():
     raw_dict = bf[tomorrow].dropna().to_dict()
     if bool(raw_dict) == False:
-        return "There is no breakfast this day" 
+        return "There is no hall breakfast this day\n" 
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
@@ -47,7 +47,7 @@ def get_tmr_breakfast():
 def get_tmr_dinner():
     raw_dict = dn[tomorrow].dropna().to_dict()
     if bool(raw_dict) == False:
-        return "There is no breakfast this day" 
+        return "There is no hall dinner this day\n" 
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
@@ -61,7 +61,7 @@ def get_tmr_dinner():
 def get_today_dinner():
     raw_dict = dn[today].dropna().to_dict()
     if bool(raw_dict) == False:
-        return "There is no breakfast this day" 
+        return "There is no hall dinner this day\n" 
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
@@ -71,5 +71,3 @@ def get_today_dinner():
     words_to_bold=['Meat', 'Side Dish', 'Special', 'Desert']
 
     return string
-
-    
