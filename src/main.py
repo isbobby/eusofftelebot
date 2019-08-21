@@ -50,6 +50,7 @@ def callback_query(call):
     date = dt.datetime.fromtimestamp(call.message.date)
 
     #this entry shows the call back properties in terminal, useful for testing
+    #this entry also takes the date which the message is sent, and use it to get the corresponding menu
     entry = {
         'date': date,
         'button': call.data,
@@ -58,19 +59,23 @@ def callback_query(call):
     }
     print(entry)
     print(entry['date'].strftime("%d/%m/%Y"))
+    tomorrow_raw = entry['date'] + dt.timedelta(days=1)
+
+    today = entry['date'].strftime("%d/%m/%Y")
+    tomorrow = tomorrow_raw.strftime("%d/%m/%Y")
 
     #get breakfast menu for today and tomorrow
     if call.data == "cb_tdy_bf":
-        bot.send_message(call.message.chat.id, get_today_breakfast())
+        bot.send_message(call.message.chat.id, get_today_breakfast(day=today))
         bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_tmr_bf":
-        bot.send_message(call.message.chat.id, get_tmr_breakfast())
+        bot.send_message(call.message.chat.id, get_tmr_breakfast(day=tomorrow))
         bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_tdy_dn":
-        bot.send_message(call.message.chat.id, text=get_today_dinner(), parse_mode="MARKDOWN")
+        bot.send_message(call.message.chat.id, get_today_dinner(day=today), parse_mode="MARKDOWN")
         bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_tmr_dn":
-        bot.send_message(call.message.chat.id, get_tmr_dinner())
+        bot.send_message(call.message.chat.id, get_tmr_dinner(day=tomorrow))
         bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_home":
         send_welcome(call.message)
