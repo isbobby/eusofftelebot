@@ -57,6 +57,7 @@ def callback_query(call):
         'type': 'callbackquery'
     }
     print(entry)
+    print(entry['date'].strftime("%d/%m/%Y"))
 
     #get breakfast menu for today and tomorrow
     if call.data == "cb_tdy_bf":
@@ -75,3 +76,4 @@ def callback_query(call):
         send_welcome(call.message)
 
 bot.polling()
+
