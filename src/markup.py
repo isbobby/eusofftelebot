@@ -7,7 +7,6 @@ def gen_markup():
     markup.add(InlineKeyboardButton("MENU", callback_data="get_menu"))
     return markup
 
-
 def menu_markup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
