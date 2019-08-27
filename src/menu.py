@@ -28,7 +28,7 @@ def get_today_breakfast(day):
     
     #special condition!
     elif day == '25/08/2019' or day == '26/08/2019':
-        return "Special Menu is served due to pipe burst in catering kitchen, normal menue resumes on Tuesday 27/08/2019"
+        return "Special Menu is served due to a pipe burst in catering kitchen, normal menu will resume on Tuesday 27/08/2019."
 
     #else put all the items into string forms and pass to telegram
     raw_list = [ item for item in raw_dict.values()]
@@ -45,7 +45,7 @@ def get_tmr_breakfast(day):
 
     #special condition
     elif day == '25/08/2019' or day == '26/08/2019':
-        return "Special Menu is served due to pipe burst in catering kitchen, normal menue resumes on Tuesday 27/08/2019"
+        return "Special Menu is served due to a pipe burst in catering kitchen, normal menu will resume on Tuesday 27/08/2019."
 
     raw_list = [ item for item in raw_dict.values()]
     string = ''
@@ -60,7 +60,7 @@ def get_tmr_dinner(day):
 
     #special condition
     elif day == '25/08/2019' or day == '26/08/2019':
-        return "Special Menu is served due to pipe burst in catering kitchen, normal menue resumes on Tuesday 27/08/2019."
+        return "Special Menu is served due to a pipe burst in catering kitchen, normal menu will resume on Tuesday 27/08/2019."
 
     raw_list = [ item for item in raw_dict.values()]
     string = ''
@@ -79,11 +79,12 @@ def get_today_dinner(day):
     
     #special situation 
     elif day == '25/08/2019' or day == '26/08/2019':
-        return "Special Menu is served due to pipe burst in catering kitchen, normal menue resumes on Tuesday 27/08/2019"
+        return "Special Menu is served due to a pipe burst in catering kitchen, normal menu will resume on Tuesday 27/08/2019."
     
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
+
         string += item + '\n'
     
     #to do: bold these headers
