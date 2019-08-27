@@ -1,4 +1,4 @@
-#this file contains all bot replies stored as dictionary
+#this file contains all bot replies stored as a dictionary
 
 bot_replies = {
     'welcome':
