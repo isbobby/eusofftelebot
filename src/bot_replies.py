@@ -1,4 +1,4 @@
-#this file contains all bot replies stored as dictionary
+#this file contains all bot replies stored as a dictionary
 
 bot_replies = {
     'welcome':
@@ -21,7 +21,7 @@ bot_replies = {
         u'We appreciate all kinds of feedback!',
     
     'mealbot_landing':
-        u"Choose to view menu",
+        u"Choose to view menus",
     
     'calendar_landing':
         u"Use these commands to navigate through the calendar (use /start to go back to the home page)"
@@ -32,5 +32,10 @@ bot_replies = {
         u"Use these commands to navigate through FAQs (use /start to go back to the home page)"
         u"\nUse /command1 to "
         u"\nUse /command2 to ",
+    
+    'mealbot_error':
+        u"Hi, I can't fetch you the menu because the caterer has not yet updated me"
+        u"\nI will keep you updated!"
+        u"\n\n Use /home to return to the home page"
 
 }
