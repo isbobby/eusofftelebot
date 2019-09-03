@@ -23,6 +23,15 @@ def send_welcome(message):
     )
     bot.message_handler(message, main_requests)
 
+@bot.message_handler(commands=["help", "start", "home"])
+def send_mealbot_error(message):
+    chat_id = message.chat.id
+    message = bot.send_message(
+        chat_id,
+        bot_replies['mealbot_error']
+    )
+    bot.message_handler(message, main_requests)
+
 #Handles the main requests: /mealbot, /faq or /events
 @bot.message_handler(func=lambda message: message.text is not None)
 def main_requests(message):
@@ -68,18 +77,26 @@ def callback_query(call):
 
     #get breakfast menu for today and tomorrow
     if call.data == "cb_tdy_bf":
-        bot.send_message(call.message.chat.id, get_today_breakfast(day=today))
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+        #bot.send_message(call.message.chat.id, get_today_breakfast(day=today))
+        #bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+        send_mealbot_error(call.message)
     elif call.data == "cb_tmr_bf":
-        bot.send_message(call.message.chat.id, get_tmr_breakfast(day=tomorrow))
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+        """ bot.send_message(call.message.chat.id, get_tmr_breakfast(day=tomorrow))
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup()) """
+        send_mealbot_error(call.message)
     elif call.data == "cb_tdy_dn":
-        bot.send_message(call.message.chat.id, get_today_dinner(day=today), parse_mode="MARKDOWN")
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+        """ bot.send_message(call.message.chat.id, get_today_dinner(day=today), parse_mode="MARKDOWN")
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup()) """
+        send_mealbot_error(call.message)
     elif call.data == "cb_tmr_dn":
-        bot.send_message(call.message.chat.id, get_tmr_dinner(day=tomorrow))
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
+        """ bot.send_message(call.message.chat.id, get_tmr_dinner(day=tomorrow))
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup()) """
+        send_mealbot_error(call.message)
     elif call.data == "cb_home":
+        send_welcome(call.message)
+        
+    #to do: implement a dabao FAQ for dabao service
+    elif call.data == "cb_take_away":
         send_welcome(call.message)
 
 bot.polling()
