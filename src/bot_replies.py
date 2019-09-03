@@ -21,8 +21,7 @@ bot_replies = {
         u'We appreciate all kinds of feedback!',
     
     'mealbot_landing':
-        u"Hi, I can't fetch you the menu because the caterer has not yet updated me"
-        u"\nI will keep you updated!",
+        u"Choose to view menus",
     
     'calendar_landing':
         u"Use these commands to navigate through the calendar (use /start to go back to the home page)"
@@ -34,8 +33,9 @@ bot_replies = {
         u"\nUse /command1 to "
         u"\nUse /command2 to ",
     
-    'mealbot_landing_emergency':
+    'mealbot_error':
         u"Hi, I can't fetch you the menu because the caterer has not yet updated me"
         u"\nI will keep you updated!"
+        u"\n\n Use /home to return to the home page"
 
 }

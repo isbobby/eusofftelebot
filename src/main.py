@@ -14,7 +14,7 @@ TOKEN = '676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0'
 bot = telebot.TeleBot(TOKEN)
 
 # Handle '/start - also prompts users to use other features'
-@bot.message_handler(commands=["help", "start"])
+@bot.message_handler(commands=["help", "start", "home"])
 def send_welcome(message):
     chat_id = message.chat.id
     message = bot.send_message(
@@ -32,7 +32,7 @@ def main_requests(message):
     if message.text == "mealbot" or message.text =="/mealbot":
         #bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
         #temp shutdown due to menu update issue from caterer @31/8/2019
-        bot.send_message(message.chat.id, bot_replies['mealbot_landing'])
+        bot.send_message(message.chat.id, bot_replies['mealbot_error'])
     
     #below are the additional features to be added
     elif message.text == "FAQ" or message.text =="/FAQ":
