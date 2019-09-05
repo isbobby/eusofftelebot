@@ -7,7 +7,7 @@ import datetime as dt
 #local imports
 from bot_replies import bot_replies
 from menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
-from markup import menu_markup, calendar_markup, faq_markup
+from markup import menu_markup, calendar_markup, faq_markup, menu_return
 
 #configuration
 TOKEN = '676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0'
@@ -20,15 +20,6 @@ def send_welcome(message):
     message = bot.send_message(
         chat_id,
         bot_replies['welcome']
-    )
-    bot.message_handler(message, main_requests)
-
-@bot.message_handler(commands=["help", "start", "home"])
-def send_mealbot_error(message):
-    chat_id = message.chat.id
-    message = bot.send_message(
-        chat_id,
-        bot_replies['mealbot_error']
     )
     bot.message_handler(message, main_requests)
 
@@ -88,10 +79,12 @@ def callback_query(call):
         bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_home":
         send_welcome(call.message)
-        
+    elif call.data == "cb_mealbot":
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     #to do: implement a dabao FAQ for dabao service
     elif call.data == "cb_take_away":
-        send_welcome(call.message)
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_dabao'])
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_return'], reply_markup=menu_return())
 
 bot.polling()
 

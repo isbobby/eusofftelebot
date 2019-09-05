@@ -36,6 +36,13 @@ bot_replies = {
     'mealbot_error':
         u"Hi, I can't fetch you the menu because the caterer has not yet updated me"
         u"\nI will keep you updated!"
-        u"\n\n Use /home to return to the home page"
+        u"\n\n Use /home to return to the home page",
 
+    'mealbot_dabao':
+        u"Hi, you can request for takeaway by filling up the excel form below and send to Ms Rashidah at eshrs@nus.edu.sg"
+        u"\n\nUnder collected by, you can fill in your CCA name eg. Badminton M"
+        u"\n\nhttps://drive.google.com/file/d/19jHM9bmt52R0ulC71sb4PB7QH5WZyYAs/view?usp=sharing",
+
+    'mealbot_return':
+        u"Go back"
 }
