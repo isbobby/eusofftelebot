@@ -30,6 +30,8 @@ def get_today_breakfast(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
+        if item == 'SPECIALS:' or item == 'SPECIALS:' or item == 'SANDWICHES:' or item == 'DRINKS:':
+            string += '\n'
         string += item + '\n'
     return string
 
@@ -42,6 +44,8 @@ def get_tmr_breakfast(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
+        if item == 'SPECIALS:' or item == 'SPECIALS:' or item == 'SANDWICHES:' or item == 'DRINKS:':
+            string += '\n'
         string += item + '\n'
     return string
 
@@ -53,6 +57,8 @@ def get_tmr_dinner(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
+        if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:':
+            string += '\n'
         string += item + '\n'
     
     #to do: bold these headers
@@ -68,6 +74,8 @@ def get_today_dinner(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
+        if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:':
+            string += '\n'
         string += item + '\n'
     
     #to do: bold these headers
