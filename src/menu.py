@@ -57,7 +57,7 @@ def get_tmr_dinner(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
-        if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:':
+        if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:' or item == 'SOUP:':
             string += '\n'
         string += item + '\n'
     
@@ -74,7 +74,7 @@ def get_today_dinner(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
-        if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:':
+        if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:' or item == 'SOUP:':
             string += '\n'
         string += item + '\n'
     
