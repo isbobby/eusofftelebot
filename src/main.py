@@ -39,9 +39,7 @@ def main_requests(message):
     
     #this if statement brings users to mealbot commands
     if message.text == "mealbot" or message.text =="/mealbot":
-        #bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
-        #temp shutdown due to menu update issue from caterer @31/8/2019
-        bot.send_message(message.chat.id, bot_replies['mealbot_error'])
+        bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     
     #below are the additional features to be added
     elif message.text == "FAQ" or message.text =="/FAQ":
@@ -77,21 +75,17 @@ def callback_query(call):
 
     #get breakfast menu for today and tomorrow
     if call.data == "cb_tdy_bf":
-        #bot.send_message(call.message.chat.id, get_today_breakfast(day=today))
-        #bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
-        send_mealbot_error(call.message)
+        bot.send_message(call.message.chat.id, get_today_breakfast(day=today))
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_tmr_bf":
-        """ bot.send_message(call.message.chat.id, get_tmr_breakfast(day=tomorrow))
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup()) """
-        send_mealbot_error(call.message)
+        bot.send_message(call.message.chat.id, get_tmr_breakfast(day=tomorrow))
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_tdy_dn":
-        """ bot.send_message(call.message.chat.id, get_today_dinner(day=today), parse_mode="MARKDOWN")
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup()) """
-        send_mealbot_error(call.message)
+        bot.send_message(call.message.chat.id, get_today_dinner(day=today), parse_mode="MARKDOWN")
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_tmr_dn":
-        """ bot.send_message(call.message.chat.id, get_tmr_dinner(day=tomorrow))
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup()) """
-        send_mealbot_error(call.message)
+        bot.send_message(call.message.chat.id, get_tmr_dinner(day=tomorrow))
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     elif call.data == "cb_home":
         send_welcome(call.message)
         
