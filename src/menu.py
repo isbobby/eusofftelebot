@@ -52,7 +52,7 @@ def get_tmr_breakfast(day):
 def get_tmr_dinner(day):
     raw_dict = dn[day].dropna().to_dict()
     if bool(raw_dict) == False:
-        return "There is no dinner today." 
+        return "There is no dinner tomorrow." 
 
     raw_list = [ item for item in raw_dict.values()]
     string = ''
@@ -69,7 +69,7 @@ def get_tmr_dinner(day):
 def get_today_dinner(day):
     raw_dict = dn[day].dropna().to_dict()
     if bool(raw_dict) == False:
-        return "There is no dinner tomorrow." 
+        return "There is no dinner today." 
     
     raw_list = [ item for item in raw_dict.values()]
     string = ''
