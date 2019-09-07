@@ -30,7 +30,7 @@ def get_today_breakfast(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
-        if item == 'SPECIALS:' or item == 'SPECIALS:' or item == 'SANDWICHES:' or item == 'DRINKS:':
+        if item == 'STAPLES:' or item == 'SPECIALS:' or item == 'SANDWICHES:' or item == 'DRINKS:':
             string += '\n'
         string += item + '\n'
     return string
@@ -44,7 +44,7 @@ def get_tmr_breakfast(day):
     raw_list = [ item for item in raw_dict.values()]
     string = ''
     for item in raw_list:
-        if item == 'SPECIALS:' or item == 'SPECIALS:' or item == 'SANDWICHES:' or item == 'DRINKS:':
+        if item == 'STAPLES:' or item == 'SPECIALS:' or item == 'SANDWICHES:' or item == 'DRINKS:':
             string += '\n'
         string += item + '\n'
     return string
