@@ -81,7 +81,7 @@ def get_tmr_dinner(day):
         string += item + '\n'
     
     #to do: bold these headers
-    words_to_bold=['Meat', 'Side Dish', 'Special', 'Dessert']
+    #words_to_bold=['Meat', 'Side Dish', 'Special', 'Dessert']
 
     return string
 
@@ -101,13 +101,14 @@ def get_today_dinner(day):
     string = ''
     for item in raw_list:
         if item == 'MEATS:' or item == 'SIDE DISHES:' or item == 'SPECIAL:' or item == 'DESSERT:' or item == 'DRINK:' or item == 'SOUP:':
-            string += '\n'
+            string += '\n'  #if the string is a header, execute a line break first.
         string += item + '\n'
     
     #to do: bold these headers
-    words_to_bold=['Meat', 'Side Dish', 'Special', 'Dessert']
+    #words_to_bold=['Meat', 'Side Dish', 'Special', 'Dessert']
 
     return string
+
 
 def test():
     raw_dict = []

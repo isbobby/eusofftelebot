@@ -8,6 +8,7 @@ import datetime as dt
 from bot_replies import bot_replies
 from menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
 from markup import menu_markup, calendar_markup, faq_markup, menu_return
+from calendar import get_calendar
 
 #configuration
 TOKEN = '676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0'
@@ -37,7 +38,7 @@ def main_requests(message):
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
     elif message.text == "Calendar" or message.text =="/Calendar":
-        bot.send_message(message.chat.id, bot_replies['calendar_landing'])
+        bot.send_message(message.chat.id, bot_replies['calendar_landing'], reply_markup= calendar_markup())
 
     else: 
         bot.send_message(
@@ -84,7 +85,18 @@ def callback_query(call):
     #to do: implement a dabao FAQ for dabao service
     elif call.data == "cb_take_away":
         bot.send_message(call.message.chat.id, bot_replies['mealbot_dabao'])
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_return'], reply_markup=menu_return())
-
-bot.polling()
-
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_return'])
+    #get calendar
+    elif call.data == "cb_calendar":
+        bot.send_photo(chat_id = call.message.chat_id, photo=open('tests/test.png', 'rb'))
+        bot.send_message(call.message.chat.id, bot_replies['']
+        
+while True:
+    try:
+        bot.polling()
+    # ConnectionError and ReadTimeout because of possible timout of the requests library
+    # TypeError for moviepy errors
+    # maybe there are others, therefore Exception
+    except Exception as e:
+        logger.error(e)
+        time.sleep(15)

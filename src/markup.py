@@ -25,8 +25,12 @@ def menu_return():
     markup.add(InlineKeyboardButton("Back to mealbot 🍙", callback_data="cb_mealbot"))
 
     return markup
+    
 def faq_markup():
     return faq_markup
 
 def calendar_markup():
-    return faq_markup
+    markup = InlineKeyboardMarkup()
+    markup.row_width = 2
+    markup.add(InlineKeyboardButton("Monthly Calendar📅 ", callback_data="cb_calendar"),
+               InlineKeyboardButton("Home 🏠", callback_data="cb_home"))
