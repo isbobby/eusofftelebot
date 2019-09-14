@@ -91,10 +91,8 @@ def callback_query(call):
     #get calendar
     elif call.data == "cb_calendar":
         bot.send_photo(chat_id = call.message.chat_id, photo=open('tests/test.png', 'rb'))
-        bot.send_message(call.message.chat.id, bot_replies['']
+        bot.send_message(call.message.chat.id, bot_replies['calendar_landing'], reply_markup = calendar_markup())
         
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_return'], reply_markup=menu_return())
-
 while True:
     try:
         bot.polling()
