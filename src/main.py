@@ -34,8 +34,8 @@ def main_requests(message):
     #this if statement brings users to mealbot commands
     if message.text == "mealbot" or message.text =="/mealbot":
         bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
-    
-    #below are the additional features to be added
+      
+    #FAQ to be added
     elif message.text == "FAQ" or message.text =="/FAQ":
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
