@@ -3,6 +3,8 @@ import telebot
 from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import datetime as dt
+import logging as logger
+import time
 
 #local imports
 from bot_replies import bot_replies
@@ -91,6 +93,8 @@ def callback_query(call):
         bot.send_photo(chat_id = call.message.chat_id, photo=open('tests/test.png', 'rb'))
         bot.send_message(call.message.chat.id, bot_replies['']
         
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_return'], reply_markup=menu_return())
+
 while True:
     try:
         bot.polling()

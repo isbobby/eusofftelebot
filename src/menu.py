@@ -22,7 +22,7 @@ def get_today_breakfast(day):
     #converting pandas column object to a python dictionary
     raw_dict = []
     try:
-        raw_dict = dn[day].dropna().to_dict()
+        raw_dict = bf[day].dropna().to_dict()
     except KeyError as e:
         print ('I got a KeyError - reason "%s"' % str(e))
     except IndexError as e:
@@ -45,7 +45,7 @@ def get_today_breakfast(day):
 def get_tmr_breakfast(day):
     raw_dict = []
     try:
-        raw_dict = dn[day].dropna().to_dict()
+        raw_dict = bf[day].dropna().to_dict()
     except KeyError as e:
         print ('I got a KeyError - reason "%s"' % str(e))
     except IndexError as e:
