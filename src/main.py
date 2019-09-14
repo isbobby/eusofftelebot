@@ -3,6 +3,8 @@ import telebot
 from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import datetime as dt
+import logging as logger
+import time
 
 #local imports
 from bot_replies import bot_replies
@@ -86,5 +88,12 @@ def callback_query(call):
         bot.send_message(call.message.chat.id, bot_replies['mealbot_dabao'])
         bot.send_message(call.message.chat.id, bot_replies['mealbot_return'], reply_markup=menu_return())
 
-bot.polling()
-
+while True:
+    try:
+        bot.polling()
+    # ConnectionError and ReadTimeout because of possible timout of the requests library
+    # TypeError for moviepy errors
+    # maybe there are others, therefore Exception
+    except Exception as e:
+        logger.error(e)
+        time.sleep(15)
