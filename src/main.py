@@ -32,16 +32,16 @@ def main_requests(message):
     chat_id = message.chat.id
     
     #this if statement brings users to mealbot commands
-    if message.text == "Mealbot" or message.text =="/Mealbot":
+    if message.text == "MealBot" or message.text =="/MealBot":
         bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
       
     #FAQ to be added
-    elif message.text == "FAQ" or message.text =="/FAQ":
+    elif message.text == "FAQBot" or message.text =="/FAQ":
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
-    elif message.text == "Calendar" or message.text =="/Calendar":
+    elif message.text == "CalendarBot" or message.text =="/CalendarBot":
         bot.send_photo(message.chat.id, photo=open('calendar/september.jpg', 'rb'))
-        bot.send_message(message.chat.id, bot_replies['return_home'], reply_markup=calendar_markup())
+        bot.send_message(message.chat.id, reply_markup=calendar_markup())
 
     else: 
         bot.send_message(

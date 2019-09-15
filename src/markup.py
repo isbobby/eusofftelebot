@@ -32,5 +32,5 @@ def faq_markup():
 def calendar_markup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
-    markup.add(InlineKeyboardButton("Monthly Calendar📅 ", callback_data="cb_calendar"),
-               InlineKeyboardButton("Home 🏠", callback_data="cb_home"))
+    markup.add(InlineKeyboardButton("Home 🏠", callback_data="cb_home"))
+    return markup

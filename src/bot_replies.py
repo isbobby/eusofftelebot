@@ -6,7 +6,7 @@ bot_replies = {
         u'\nUse /Mealbot to view the dining hall menu 🍗'
         u'\nUse /Calendar to view this month\'s calendar of events 📅',
         #u'\nUse /FAQ to view FAQ regarding hall matters'
-        # u'\nUse /laundry to view laundry machines' status'
+        #u'\nUse /laundry to view laundry machines' status'
 
     'info':
         u'Hello there!\n'
@@ -26,6 +26,11 @@ bot_replies = {
 
     'calendar_landing':
         u"Choose to view calendar",
+
+    'laundry_landing'
+        u"Use these commands to navigate through FAQs (use /start to go back to the home page)"
+        u"\nUse /command1 to "
+        u"\nUse /command2 to ",
 
     'faq_landing':
         u"Use these commands to navigate through FAQs (use /start to go back to the home page)"
