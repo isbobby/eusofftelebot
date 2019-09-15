@@ -1,4 +1,4 @@
-#this file contains all bot replies stored as a dictionary
+# this file contains all bot replies stored as a dictionary
 
 bot_replies = {
     'welcome':
@@ -6,7 +6,7 @@ bot_replies = {
         u'\nUse /Mealbot to view the dining hall menu 🍗'
         u'\nUse /Calendar to view the this month\'s calendar of events 📅',
         #u'\nUse /FAQ to view FAQ regarding hall matters'
-        #u'\nUse /laundry to view laundry machines' status'
+        # u'\nUse /laundry to view laundry machines' status'
 
     'info':
         u'Hello there!\n'
@@ -19,20 +19,19 @@ bot_replies = {
     'feedback':
         u'Feel free to leave down any suggestions/opinions at https://goo.gl/forms/zaOOUhiJhH8RzlZx2\n'
         u'We appreciate all kinds of feedback!',
-    
 
-    'mealbot_landing': 
+
+    'mealbot_landing':
         u"Choose to view menus",
-    
+
     'calendar_landing':
         u"Choose to view calendar",
-
 
     'faq_landing':
         u"Use these commands to navigate through FAQs (use /start to go back to the home page)"
         u"\nUse /command1 to "
         u"\nUse /command2 to ",
-    
+
     'mealbot_error':
         u"Hi, I can't fetch you the menu because the caterer has not yet updated me"
         u"\nI will keep you updated!"
@@ -44,5 +43,8 @@ bot_replies = {
         u"\n\nhttps://drive.google.com/file/d/19jHM9bmt52R0ulC71sb4PB7QH5WZyYAs/view?usp=sharing",
 
     'mealbot_return':
-        u"Go back"
+        u"Go back",
+
+    'return_home':
+        u"Go back /home"
 }

@@ -40,8 +40,8 @@ def main_requests(message):
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
     elif message.text == "Calendar" or message.text =="/Calendar":
-        bot.send_photo(message.chat_id, photo=open('tests/test.png', 'rb'))
-        bot.send_message(message.chat.id, bot_replies['calendar_landing'], reply_markup= calendar_markup())
+        bot.send_photo(message.chat.id, photo=open('calendar/september.jpg', 'rb'))
+        bot.send_message(message.chat.id, bot_replies['return_home'], reply_markup=calendar_markup())
 
     else: 
         bot.send_message(
@@ -88,7 +88,7 @@ def callback_query(call):
     #to do: implement a dabao FAQ for dabao service
     elif call.data == "cb_take_away":
         bot.send_message(call.message.chat.id, bot_replies['mealbot_dabao'])
-        bot.send_message(call.message.chat.id, bot_replies['mealbot_return'])
+        bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     #to do: get calendar
 
         
