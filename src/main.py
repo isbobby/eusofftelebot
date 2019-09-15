@@ -10,7 +10,7 @@ import time
 from bot_replies import bot_replies
 from menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
 from markup import menu_markup, calendar_markup, faq_markup, menu_return
-from calendar import get_calendar
+# from calendar import get_calendar
 
 #configuration
 TOKEN = '676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0'
@@ -32,7 +32,7 @@ def main_requests(message):
     chat_id = message.chat.id
     
     #this if statement brings users to mealbot commands
-    if message.text == "mealbot" or message.text =="/mealbot":
+    if message.text == "Mealbot" or message.text =="/Mealbot":
         bot.send_message(message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
       
     #FAQ to be added
@@ -40,6 +40,7 @@ def main_requests(message):
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
     elif message.text == "Calendar" or message.text =="/Calendar":
+        bot.send_photo(message.chat_id, photo=open('tests/test.png', 'rb'))
         bot.send_message(message.chat.id, bot_replies['calendar_landing'], reply_markup= calendar_markup())
 
     else: 
@@ -88,10 +89,8 @@ def callback_query(call):
     elif call.data == "cb_take_away":
         bot.send_message(call.message.chat.id, bot_replies['mealbot_dabao'])
         bot.send_message(call.message.chat.id, bot_replies['mealbot_return'])
-    #get calendar
-    elif call.data == "cb_calendar":
-        bot.send_photo(chat_id = call.message.chat_id, photo=open('tests/test.png', 'rb'))
-        bot.send_message(call.message.chat.id, bot_replies['calendar_landing'], reply_markup = calendar_markup())
+    #to do: get calendar
+
         
 while True:
     try:
