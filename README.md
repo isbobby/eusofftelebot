@@ -3,10 +3,12 @@
 
 ### Current Features:
 > MealBot - Displays the Dining Hall menus for current and next day
+
 > CalendarBot - Displays the Monthly Calendar of events
 
 ### Features to be added:
 > LaundryBot - Displays the status of washing machines
+
 > FAQBot - Displays the FAQ
 
 ### main.py  
