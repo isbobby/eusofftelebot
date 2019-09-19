@@ -1,25 +1,18 @@
 # Python3 Telegram Bot 
-> Telegram Bot which shows users of Eusoff Hall their meal menus for the current and next day.
+> Telegram Bot aimed to improve the lives of Eusoff Hall residents.
 
-### server.py  
-> Contains server logic and delivers telegram updates to bot logic.  
+### Current Features:
+> MealBot - Displays the Dining Hall menus for current and next day
+> CalendarBot - Displays the Monthly Calendar of events
 
-### bot.py  
+### Features to be added:
+> LaundryBot - Displays the status of washing machines
+> FAQBot - Displays the FAQ
+
+### main.py  
 > Holds bot logic isolated from server code, can be expanded without touching server.
 
-#### You'll need to create a .env file
 
-`.env` file should look sth like this:
-```
-# Environment Config
-
-# store your secrets and config variables in here
-
-SECRET=<anything, was testing>
-MADE_WITH=<anything, was testing>
-TELEGRAM_TOKEN=<your token>
-PROJECT_NAME=<truth-mine>
-GROUP_CHAT_ID=<anything, was testing>
 ```
 
 ### Room for Improvements
