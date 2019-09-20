@@ -1,5 +1,5 @@
-# Python3 Telegram Bot 
-> Telegram Bot aimed to improve the lives of Eusoff Hall residents.
+# Eusoffbot
+> A Python3 Telegram Bot aimed to improve the lives of Eusoff Hall residents.
 
 ### Current Features:
 > MealBot - Displays the Dining Hall menus for current and next day
@@ -13,6 +13,10 @@
 
 ### main.py  
 > Holds bot logic isolated from server code, can be expanded without touching server.
+
+### Authors 
+Bobby Cai Rong
+Wong Wei Kang
 
 
 ```
