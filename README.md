@@ -11,10 +11,7 @@
 
 > FAQBot - Displays the FAQ
 
-### main.py  
-> Holds bot logic isolated from server code, can be expanded without touching server.
-
-### Authors 
+### Authors:
 Bobby Cai Rong
 
 Wong Wei Kang
