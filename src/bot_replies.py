@@ -27,7 +27,7 @@ bot_replies = {
     'calendar_landing':
         u"Choose to view calendar",
 
-    'laundry_landing'
+    'laundry_landing':
         u"Use these commands to navigate through FAQs (use /start to go back to the home page)"
         u"\nUse /command1 to "
         u"\nUse /command2 to ",
