@@ -41,7 +41,7 @@ def main_requests(message):
 
     elif message.text == "CalendarBot" or message.text =="/CalendarBot":
         bot.send_photo(message.chat.id, photo=open('calendar/september.jpg', 'rb'))
-        bot.send_message(message.chat.id, bot_replies['return_home'])
+        bot.send_message(message.chat.id, bot_replies['mealbot_return'], reply_markup = calendar_markup())
 
     else: 
         bot.send_message(
