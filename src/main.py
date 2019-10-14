@@ -40,7 +40,7 @@ def main_requests(message):
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
     elif message.text == "CalendarBot" or message.text =="/CalendarBot":
-        bot.send_photo(message.chat.id, photo=open('calendar/september.jpg', 'rb'))
+        bot.send_photo(message.chat.id, photo=open('calendar/october.jpg', 'rb'))
         bot.send_message(message.chat.id, bot_replies['mealbot_return'], reply_markup = calendar_markup())
 
     else: 
