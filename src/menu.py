@@ -7,8 +7,8 @@ import datetime
 
 #read both csv files
 pd.set_option('display.max_colwidth',1000)
-bf = pd.read_csv('bf.csv')
-dn = pd.read_csv('dn.csv')
+bf = pd.read_csv('src/bf.csv')
+dn = pd.read_csv('src/dn.csv')
 
 #format base files
 

@@ -7,9 +7,9 @@ import logging as logger
 import time
 
 #local imports
-from bot_replies import bot_replies
-from menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
-from markup import menu_markup, calendar_markup, faq_markup, menu_return
+from src.bot_replies import bot_replies
+from src.menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
+from src.markup import menu_markup, calendar_markup, faq_markup, menu_return
 # from calendar import get_calendar
 
 #configuration
@@ -91,13 +91,4 @@ def callback_query(call):
         bot.send_message(call.message.chat.id, bot_replies['mealbot_landing'], reply_markup=menu_markup())
     #to do: get calendar
 
-        
-while True:
-    try:
-        bot.polling()
-    # ConnectionError and ReadTimeout because of possible timout of the requests library
-    # TypeError for moviepy errors
-    # maybe there are others, therefore Exception
-    except Exception as e:
-        logger.error(e)
-        time.sleep(15)
+    
