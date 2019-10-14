@@ -1,4 +1,8 @@
 from src.main import bot, logger, time
+from os import environ
+from flask import Flask
+
+app = Flask(__name__)
 
 while True:
     try:
