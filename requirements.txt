@@ -11,19 +11,8 @@ dnspython==1.16.0
 docutils==0.14
 dominate==2.3.5
 elasticsearch==7.0.2
-Flask==1.1.dev0
-Flask-Admin==1.5.3
-Flask-Bcrypt==0.7.1
-Flask-Bootstrap==3.3.7.1
-Flask-Login==0.4.1
-Flask-Mail==0.9.1
-Flask-PyMongo==2.3.0
-Flask-SQLAlchemy==2.4.0
-Flask-WhooshAlchemy==0.56
-Flask-WTF==0.14.2
 importlib-metadata==0.18
 isort==4.3.20
-itsdangerous==1.1.0
 jmespath==0.9.4
 lazy-object-proxy==1.4.1
 MarkupSafe==1.1.1
@@ -53,7 +42,6 @@ s3transfer==0.2.1
 secret==0.8
 six==1.12.0
 sql==0.4.0
-SQLAlchemy==1.2.2
 sqlparse==0.3.0
 tabulate==0.8.3
 telebot==0.0.3
@@ -65,6 +53,4 @@ wcwidth==0.1.7
 Werkzeug==0.15.4
 Whoosh==2.7.4
 wrapt==1.11.2
-WTForms==2.2.1
-WTForms-SQLAlchemy==0.1
 zipp==0.5.1
