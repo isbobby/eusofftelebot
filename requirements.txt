@@ -16,17 +16,6 @@ dnspython==1.16.0
 docutils==0.14
 dominate==2.3.5
 elasticsearch==7.0.2
-Flask==1.1.dev0
-Flask-Admin==1.5.3
-Flask-Bcrypt==0.7.1
-Flask-Bootstrap==3.3.7.1
-Flask-Login==0.4.1
-Flask-Mail==0.9.1
-Flask-PyMongo==2.3.0
-Flask-SQLAlchemy==2.4.0
-Flask-User==1.0.1.5
-Flask-WhooshAlchemy==0.56
-Flask-WTF==0.14.2
 gunicorn==19.9.0
 importlib-metadata==0.18
 isort==4.3.20
