@@ -4,7 +4,8 @@ bot_replies = {
     'welcome':
         u'Hello there! I am your Eusoff Telegram Bot 🦅.\n'
         u'\nUse /MealBot to view the dining hall menu 🍗'
-        u'\nUse /CalendarBot to view this month\'s calendar of events 📅',
+        u'\nUse /CalendarBot to view this month\'s calendar of events 📅'
+        u'\nUse /HamsumBoy to see Hamsumboy!!! 😍',
         #u'\nUse /FAQBot to view FAQ '
         #u'\nUse /LaundryBot to view laundry machines' status 🧺'
 

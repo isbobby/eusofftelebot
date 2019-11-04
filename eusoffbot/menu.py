@@ -10,6 +10,7 @@ pd.set_option('display.max_colwidth',1000)
 bf = pd.read_csv('eusoffbot/bf.csv')
 dn = pd.read_csv('eusoffbot/dn.csv')
 
+
 #format base files
 
 #format date: new version takes date from user directly, hence these are no longer in use

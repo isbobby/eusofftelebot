@@ -10,9 +10,12 @@ import time
 from eusoffbot.bot_replies import bot_replies
 from eusoffbot.menu import get_today_breakfast, get_tmr_breakfast, get_tmr_dinner, get_today_dinner
 from eusoffbot.markup import menu_markup, calendar_markup, faq_markup, menu_return
+
 # from calendar import get_calendar
 
 #configuration
+#WKtest token 887871651:AAEgiyP5aoRbV6JL3RMfazbpbYhN9gJ9-6g
+#Actual token 676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0
 TOKEN = '676612820:AAHmVMr1Qkd0Cah7u1i7I-ByFBwb_pnGoO0'
 bot = telebot.TeleBot(TOKEN)
 
@@ -40,7 +43,11 @@ def main_requests(message):
         bot.send_message(message.chat.id, bot_replies['faq_landing'])
 
     elif message.text == "CalendarBot" or message.text =="/CalendarBot":
-        bot.send_photo(message.chat.id, photo=open('eusoffbot/calendar/october.jpg', 'rb'))
+        bot.send_photo(message.chat.id, photo=open('eusoffbot/calendar/november.jpg', 'rb'))
+        bot.send_message(message.chat.id, bot_replies['mealbot_return'], reply_markup = calendar_markup())
+
+    elif message.text =="HamsumBoy" or message.text == "/HamsumBoy":
+        bot.send_photo(message.chat.id, photo=open('eusoffbot/calendar/hamsumboy.jpg', 'rb'))
         bot.send_message(message.chat.id, bot_replies['mealbot_return'], reply_markup = calendar_markup())
 
     else: 
