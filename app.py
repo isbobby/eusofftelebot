@@ -1,7 +1,9 @@
 from flask import Flask, request
+
 import telegram
-from telebot.credentials import bot_token, bot_user_name,URL
-from telebot.mastermind import get_response
+
+from eusoffbot.credentials import bot_token, bot_user_name, URL
+from eusoffbot.mastermind import get_response
 
 global bot
 global TOKEN
@@ -22,11 +24,13 @@ def respond():
     # Telegram understands UTF-8, so encode text for unicode compatibility
     text = update.message.text.encode('utf-8').decode()
     print("got text message :", text)
-    # here we call our super AI
+    # here we call our mastermind.py to get a response and a mark up
     response = get_response(text)
-    # now just send the message back
-    # notice how we specify the chat and the msg we reply to
-    bot.sendMessage(chat_id=chat_id, text=response, reply_to_message_id=msg_id)
+    
+    if (response.hasMarkup):
+        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.markup)
+    else:
+        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
     return 'ok'
 
 @app.route('/setwebhook', methods=['GET', 'POST'])

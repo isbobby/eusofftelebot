@@ -1,13 +1,7 @@
-#this file contains all markup generations 
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+#this file contains all markup 
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 
-def gen_markup():
-    markup = InlineKeyboardMarkup()
-    markup.row_width = 2
-    markup.add(InlineKeyboardButton("MENU", callback_data="get_menu"))
-    return markup
-
-def menu_markup():
+def MenuMarkup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
     markup.add(InlineKeyboardButton("Tdy's Bf 🍞", callback_data="cb_tdy_bf"),
@@ -19,17 +13,23 @@ def menu_markup():
 
     return markup
 
-def menu_return():
-    markup = InlineKeyboardMarkup()
-    markup.row_width = 2
-    markup.add(InlineKeyboardButton("Back to mealbot 🍙", callback_data="cb_mealbot"))
-
+def ResponseMarkup():
+    markup = ReplyKeyboardMarkup()
+    meal_plan_btn = KeyboardButton('Meal Plan')
+    markup.row(meal_plan_btn)
+    cal_btn = KeyboardButton('Calendar/Fixture')
+    markup.row(cal_btn)
+    pub_btn = KeyboardButton('Publications ')
+    markup.row(pub_btn)
+    help_btn = KeyboardButton('Help')
+    markup.row(help_btn)
     return markup
     
-def faq_markup():
-    return faq_markup
+def FAQMarkup():
+    markup=1
+    return markup
 
-def calendar_markup():
+def CalendarMarkup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
     markup.add(InlineKeyboardButton("Home 🏠", callback_data="cb_home"))
