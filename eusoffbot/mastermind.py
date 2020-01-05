@@ -9,7 +9,7 @@ class Response:
 
 def get_response(msg):
     if msg == "/start":
-        new_response = Response(text="Hi",hasmarkup=True,markup=markup.ResponseMarkup)
+        new_response = Response(text="Hi",hasmarkup=True,markup="markup.ResponseMarkup")
         return new_response
     else:
         new_response = Response(text="nah",hasmarkup=False,markup="")
