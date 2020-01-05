@@ -1,5 +1,5 @@
 #this file contains all markup 
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
+from packages.telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 
 def MenuMarkup():
     markup = InlineKeyboardMarkup()
