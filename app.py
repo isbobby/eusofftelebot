@@ -24,8 +24,8 @@ def respond():
     print("got text message :", text)
     response = get_response(update.message)
     
-    if (response.hasMarkup):
-        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.markup)
+    if (response.has_markup):
+        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
     else:
         bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
     return 'ok'
