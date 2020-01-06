@@ -22,7 +22,7 @@ def respond():
     
     #Print to terminal
     print("got text message :", text)
-    response = get_response(text)
+    response = get_response(update.message)
     
     if (response.hasMarkup):
         bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.markup)
