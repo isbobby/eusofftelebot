@@ -1,8 +1,8 @@
 from flask import Flask, request
 import telegram
 from eusoffbot.credentials import bot_token, bot_user_name, URL
-from eusoffbot.mastermind import get_response
-
+from eusoffbot.mastermind import getResponse
+from eusoffweb import create_app
 global bot
 global TOKEN
 
@@ -10,7 +10,7 @@ TOKEN = bot_token
 
 bot = telegram.Bot(token=TOKEN)
 
-app = Flask(__name__)
+app = create_app()
 
 @app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
@@ -22,7 +22,7 @@ def respond():
     
     #Print to terminal
     print("got text message :", text)
-    response = get_response(update.message)
+    response = getResponse(update.message)
     
     if (response.has_markup):
         bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
@@ -41,11 +41,7 @@ def set_webhook():
     else:
         return "webhook setup failed"
 
-@app.route('/')
-def index():
-    return '.'
-
 if __name__ == '__main__':
     # note the threaded arg which allow
     # your app to have more than one thread
-    app.run(threaded=True)
+    app.run(threaded=True, debug=True)

@@ -4,13 +4,13 @@ from eusoffbot import replies
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 
 
-def get_response(message):
+def getResponse(message):
     if (message.text == "/start" or message.text == "Home"):
         response = getHomeResponse()
 
     elif (message.text == "Meal Plan 🍞"):
         response = getMealplanResponse()
-        
+
     elif (message.text == "Today's Breakfast"):
         response = getTodayBreakfast()
 
