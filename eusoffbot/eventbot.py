@@ -49,7 +49,7 @@ def getTodayEvent():
     for event in todayEvents:
         todayEventsDescription += (getEventDescription(event))
     
-    if todayEvents:
+    if todayEventsDescription:
         return Response(text=todayEventsDescription, has_markup=True, reply_markup=None)
 
     return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
@@ -63,9 +63,9 @@ def getTomorrowEvent():
     tomorrowEventsDescription = ""
     
     for event in tomorrowEvents:
-        todayEventsDescription += (getEventDescription(event))
+        tomorrowEventsDescription += (getEventDescription(event))
     
-    if tomorrowEvents:
+    if tomorrowEventsDescription:
         return Response(text=tomorrowEventsDescription, has_markup=True, reply_markup=None)
 
     return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
