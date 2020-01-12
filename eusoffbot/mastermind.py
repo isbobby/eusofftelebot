@@ -109,7 +109,7 @@ def getTodayBreakfast():
     """
     This method queries the DB for breakfast with today's date
     """
-    todayBreakfast = Breakfast.query.filter(Breakfast.date == DateToday)
+    todayBreakfast = Breakfast.query.filter(Breakfast.date == DateToday).first()
     if todayBreakfast:
         return Response(text=todayBreakfast.toString(), has_markup=True, reply_markup=None)
 
@@ -120,7 +120,7 @@ def getTodayDinner():
     """
     This method queries the DB for dinner with today's date
     """
-    todayDinner = Dinner.query.filter(Dinner.date == DateToday)
+    todayDinner = Dinner.query.filter(Dinner.date == DateToday).first()
     if todayDinner:
         return Response(text=todayDinner.toString(), has_markup=True, reply_markup=None)
 
@@ -131,7 +131,7 @@ def getTomorrowBreakfast():
     """
     This method queries the DB for breakfast with tomorrow's date
     """
-    tomorrowBreakfast = Breakfast.query.filter(Breakfast.date == DateTomorrow)
+    tomorrowBreakfast = Breakfast.query.filter(Breakfast.date == DateTomorrow).first()
     if tomorrowBreakfast:
         return Response(text=tomorrowBreakfast.toString(), has_markup=True, reply_markup=None)
 
@@ -142,7 +142,7 @@ def getTomorrowDinner():
     """
     This method queries the DB for dinner with tomorrow's date
     """
-    tomorrowDinner = Dinner.query.filter(Dinner.date == DateTomorrow)
+    tomorrowDinner = Dinner.query.filter(Dinner.date == DateTomorrow).first()
     if tomorrowDinner:
         return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)
 
