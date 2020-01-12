@@ -45,7 +45,7 @@ class Dinner(db.Model):
     SQL FORMAT:
     1, '2020-01-01', 'Main Menu', 'Side Menu', 'Soup Menu', 'Dessert Menu' 
 
-    INSERT INTO dinner VALUES ( 1, '2020-01-01', 'Main Menu', 'Side Menu', 'Soup Menu', 'Dessert Menu' );
+    INSERT INTO dinner VALUES ( 1, '2020-01-01', 'Main Menu', 'Side Menu', 'Soup Menu', 'Special Menu','Dessert Menu' );
     """
 
     id = db.Column(db.Integer, primary_key=True)
@@ -53,13 +53,14 @@ class Dinner(db.Model):
     main = db.Column(db.String(100), nullable=False)
     side = db.Column(db.String(100), nullable=False)
     soup = db.Column(db.String(100), nullable=False)
+    special = db.Column(db.String(100), nullable=False)
     dessert = db.Column(db.String(100), nullable=False)
 
     def getDatabaseFormat(self):
         """ 
         Returns a string which describes the database format. 
         """
-        return "( id:1, date:'2020-01-01', main:'Main Menu', side:'Side Menu', soup:'Soup Menu', dessert:'Dessert Menu' )"
+        return "( id:1, date:'2020-01-01', main:'Main Menu', side:'Side Menu', soup:'Soup Menu', special:'Special Menu', dessert:'Dessert Menu' )"
 
     def toString(self):
         """
@@ -70,6 +71,7 @@ class Dinner(db.Model):
             "Main - " + self.main + "\n" +
             "Side - " + self.side + "\n" +
             "Soup - " + self.soup + "\n" +
+            "Special - " + self.special + "\n" +
             "Dessert - " + self.dessert 
         )
 
