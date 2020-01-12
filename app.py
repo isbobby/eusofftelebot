@@ -12,6 +12,8 @@ bot = telegram.Bot(token=TOKEN)
 
 app = create_app()
 
+from eusoffweb.models import Breakfast
+
 @app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
     # retrieve the message in JSON and then transform it to the Telegram object

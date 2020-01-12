@@ -1,10 +1,25 @@
+from telegram import KeyboardButton, ReplyKeyboardMarkup
+from datetime import datetime, timedelta
+
 from eusoffbot.response import Response
 from eusoffbot import replies
 
-from telegram import KeyboardButton, ReplyKeyboardMarkup
+from eusoffweb.models import Breakfast, Dinner
+
+"""
+Define date variables
+"""
+todayTime = datetime.now()
+tomorrowTime = datetime.now() + timedelta(days=1)
+
+DateToday = todayTime.strftime("%Y-%m-%d")
+DateTomorrow = tomorrowTime.strftime("%Y-%m-%d")
 
 
 def getResponse(message):
+    """
+    Calls the corresponding methods for responses users enter
+    """
     if (message.text == "/start" or message.text == "Home"):
         response = getHomeResponse()
 
@@ -91,19 +106,47 @@ def getErrorResponse():
 
 
 def getTodayBreakfast():
-    return Response(text="Some error has occured", has_markup=True, reply_markup=None)
+    """
+    This method queries the DB for breakfast with today's date
+    """
+    todayBreakfast = Breakfast.query.filter(Breakfast.date == DateToday)
+    if todayBreakfast:
+        return Response(text=todayBreakfast.toString(), has_markup=True, reply_markup=None)
+
+    return Response(text="Breakfast is not provided today, or the menu is not yet updated)", has_markup=True, reply_markup=None)
 
 
 def getTodayDinner():
-    return Response(text="Some error has occured", has_markup=True, reply_markup=None)
+    """
+    This method queries the DB for dinner with today's date
+    """
+    todayDinner = Dinner.query.filter(Dinner.date == DateToday)
+    if todayDinner:
+        return Response(text=todayDinner.toString(), has_markup=True, reply_markup=None)
+
+    return Response(text="Dinner is not provided today, or the menu is not yet updated)", has_markup=True, reply_markup=None)
 
 
 def getTomorrowBreakfast():
-    return Response(text="Some error has occured", has_markup=True, reply_markup=None)
+    """
+    This method queries the DB for breakfast with tomorrow's date
+    """
+    tomorrowBreakfast = Breakfast.query.filter(Breakfast.date == DateTomorrow)
+    if tomorrowBreakfast:
+        return Response(text=tomorrowBreakfast.toString(), has_markup=True, reply_markup=None)
+
+    return Response(text="Breakfast is not provided tomorrow, or the menu is not yet updated)", has_markup=True, reply_markup=None)
 
 
 def getTomorrowDinner():
-    return Response(text="Some error has occured", has_markup=True, reply_markup=None)
+    """
+    This method queries the DB for dinner with tomorrow's date
+    """
+    tomorrowDinner = Dinner.query.filter(Dinner.date == DateTomorrow)
+    if tomorrowDinner:
+        return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)
+
+    return Response(text="Dinner is not provided tomorrow, or the menu is not yet updated)", has_markup=True, reply_markup=None)
 
 
 def getCalendarPDF():
