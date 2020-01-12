@@ -2,9 +2,9 @@ import os
 
 from flask import Flask
 from eusoffweb.config import Config
-from eusoffweb.extensions import db
+from eusoffweb.extensions import db, Admin, ModelView
 
-from eusoffweb.models import Breakfast
+from eusoffweb.models import Breakfast, Dinner
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -14,7 +14,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     
     #initialize admin
-    # admin = Admin(app, name='JerseyBidding', template_mode='bootstrap3')
+    admin = Admin(app, name='Eusoffweb Service', template_mode='bootstrap3')
     
     #import the routes as classes and register these blueprints into the flask app
     from eusoffweb.main.routes import main
@@ -22,8 +22,8 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
 
     #initialize admin view pages so we can view things in the admin interface
-    # admin.add_view(ModelView(User, db.session))
-    # admin.add_view(ModelView(Choice, db.session))
+    admin.add_view(ModelView(Dinner, db.session))
+    admin.add_view(ModelView(Breakfast, db.session))
     # admin.add_view(ModelView(JerseyNumber, db.session))
     # admin.add_view(ModelView(Gender, db.session))
     # admin.add_view(ModelView(UserSports, db.session))
