@@ -3,3 +3,6 @@ class Response:
         self.text=text
         self.has_markup=has_markup
         self.reply_markup=reply_markup
+    
+    def getTextDescription(self):
+        return self.text

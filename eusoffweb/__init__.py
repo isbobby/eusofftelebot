@@ -4,7 +4,7 @@ from flask import Flask
 from eusoffweb.config import Config
 from eusoffweb.extensions import db, Admin, ModelView
 
-from eusoffweb.models import Breakfast, Dinner
+from eusoffweb.models import Breakfast, Dinner, Event
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -24,7 +24,7 @@ def create_app(config_class=Config):
     #initialize admin view pages so we can view things in the admin interface
     admin.add_view(ModelView(Dinner, db.session))
     admin.add_view(ModelView(Breakfast, db.session))
-    # admin.add_view(ModelView(JerseyNumber, db.session))
+    admin.add_view(ModelView(Event, db.session))
     # admin.add_view(ModelView(Gender, db.session))
     # admin.add_view(ModelView(UserSports, db.session))
     # admin.add_view(ModelView(Sport, db.session))
