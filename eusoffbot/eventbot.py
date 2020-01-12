@@ -24,7 +24,7 @@ DatetimeTomorrowMidnight = tomorrowTime.strftime("%Y-%m-%d 23:59:59")
 
 def getCalendarResponse():
     CustomReplyArray = [
-        [KeyboardButton("Calendar (PDF)")],
+        # [KeyboardButton("Calendar (PDF)")],
         [KeyboardButton("What's up today")],
         [KeyboardButton("What's up tomorrow")],
         [KeyboardButton("Home")]

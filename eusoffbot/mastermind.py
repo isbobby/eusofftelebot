@@ -51,7 +51,7 @@ def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
         [KeyboardButton("Calendar and Fixture 📆")],
-        [KeyboardButton("Eusoff Publications 📩")],
+        # [KeyboardButton("Eusoff Publications 📩")],
         [KeyboardButton("Home")]
     ]
     CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
@@ -72,7 +72,7 @@ def getPubsResponse():
 
 
 def getErrorResponse():
-    return Response(text="Some error has occured", has_markup=True, reply_markup=None)
+    return Response(text="Sorry, I don't recognize this command, try /start", has_markup=True, reply_markup=None)
 
 
 def getSMCNewsletterPDF():
