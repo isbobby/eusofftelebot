@@ -2,6 +2,7 @@ from eusoffweb import db
 
 class Breakfast(db.Model):
     """ 
+    Attributes (date, staple, main, side, special, drinks)
     SQL FORMAT:
     1, 2020-01-01, 'Special Menu', 'Staple Menu', 'Drink Menu'
 
@@ -15,7 +16,7 @@ class Breakfast(db.Model):
     staple = db.Column(db.String(300), nullable=False)
     main = db.Column(db.String(300), nullable=False)
     side =  db.Column(db.String(100), nullable=False)
-    speical =  db.Column(db.String(100), nullable=False)
+    special =  db.Column(db.String(100), nullable=False)
     drinks = db.Column(db.String(100), nullable=False)
 
     def getDatabaseFormat(self):
@@ -32,7 +33,7 @@ class Breakfast(db.Model):
             "Staple - " + self.staple + "\n" + "\n" +
             "Main - " + self.main + "\n" + "\n" +
             "Side - " + self.side + "\n" + "\n" +
-            "Special - " + self.speical + "\n" + "\n" +
+            "Special - " + self.special + "\n" + "\n" +
             "drinks - " + self.drinks + "\n" 
         )
 
