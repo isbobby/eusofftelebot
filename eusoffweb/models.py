@@ -40,6 +40,7 @@ class Breakfast(db.Model):
 
 class Dinner(db.Model):
     """ 
+    Attributes (date (db.Date), main, side, soup, special, dessert)
     SQL FORMAT:
     1, '2020-01-01', 'Main Menu', 'Side Menu', 'Soup Menu', 'Dessert Menu' 
 

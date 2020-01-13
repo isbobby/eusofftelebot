@@ -39,6 +39,8 @@ marshmallow-enum==1.5.1
 marshmallow-sqlalchemy==0.21.0
 mccabe==0.6.1
 more-itertools==8.0.2
+numpy==1.18.1
+pandas==0.25.3
 post==2019.4.13
 prison==0.1.2
 psycopg2==2.8.4
