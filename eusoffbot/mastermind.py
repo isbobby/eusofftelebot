@@ -1,9 +1,14 @@
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 
 from eusoffbot.response import Response
-from eusoffbot.mealbot import (getTodayBreakfast, getTodayDinner,
-                               getTomorrowBreakfast, getTomorrowDinner, getMealplanResponse)
-from eusoffbot.eventbot import getCalendarPDF, getCalendarResponse, getTomorrowEvent, getTodayEvent
+
+from eusoffbot.mealbot import MealBot
+from eusoffbot.eventbot import EventBot
+from eusoffbot.publicationbot import PublicationBot
+
+eventBot = EventBot()
+publicationBot = PublicationBot()
+mealBot = MealBot()
 
 def getResponse(message):
     """
@@ -14,44 +19,50 @@ def getResponse(message):
         response = getHomeResponse()
 
     elif (message.text == "Meal Plan 🍞"):
-        response = getMealplanResponse()
+        response = mealBot.getMealplanResponse()
 
     elif (message.text == "Today's Breakfast"):
-        response = getTodayBreakfast()
+        response = mealBot.getTodayBreakfast()
 
     elif (message.text == "Today's Dinner"):
-        response = getTodayDinner()
+        response = mealBot.getTodayDinner()
 
     elif (message.text == "Tomorrow's Breakfast"):
-        response = getTomorrowBreakfast()
+        response = mealBot.getTomorrowBreakfast()
 
     elif (message.text == "Tomorrow's Dinner"):
-        response = getTomorrowDinner()
+        response = mealBot.getTomorrowDinner()
 
     # Event related
     elif (message.text == "Calendar and Fixture 📆"):
-        response = getCalendarResponse()
+        response = eventBot.getCalendarResponse()
 
     elif (message.text == "What's up today"):
-        response = getTodayEvent()
+        response = eventBot.getTodayEvent()
 
     elif (message.text == "What's up tomorrow"):
-        response = getTomorrowEvent()
+        response = eventBot.getTomorrowEvent()
 
+    # Publication related
     elif (message.text == "Eusoff Publications 📩"):
-        response = getPubsResponse()
+        response = publicationBot.getPubsResponse()
+
+    elif (message.text == "Eusoff Wordpress"):
+        response = publicationBot.getEusoffWordpress()
+
+    elif (message.text == "Eusoffworks Facebook"):
+        response = publicationBot.getEusoffWorksFB()
 
     else:
         response = getErrorResponse()
 
     return response
 
-
 def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
         [KeyboardButton("Calendar and Fixture 📆")],
-        # [KeyboardButton("Eusoff Publications 📩")],
+        [KeyboardButton("Eusoff Publications 📩")],
         [KeyboardButton("Home")]
     ]
     CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
@@ -59,21 +70,5 @@ def getHomeResponse():
                         has_markup=True, reply_markup=CustomReply)
     return response
 
-
-def getPubsResponse():
-    CustomReplyArray = [
-        [KeyboardButton("SMC Newsletter")],
-        [KeyboardButton("Home")]
-    ]
-    CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
-    response = Response(text="Checking this month's publication",
-                        has_markup=True, reply_markup=CustomReply)
-    return response
-
-
 def getErrorResponse():
     return Response(text="Sorry, I don't recognize this command, try /start", has_markup=True, reply_markup=None)
-
-
-def getSMCNewsletterPDF():
-    return Response(text="Some error has occured", has_markup=True, reply_markup=None)

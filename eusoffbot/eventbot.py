@@ -8,79 +8,81 @@ from sqlalchemy import between, select
 
 import pytz
 
-"""
-Define date variables
-"""
-singaporeTimezone = pytz.timezone("Asia/Singapore")
+class EventBot():
+    def __init__(self):
+        """
+        Define date variables
+        """
+        self.singaporeTimezone = pytz.timezone("Asia/Singapore")
 
-todayTime = datetime.now(singaporeTimezone)
-tomorrowTime = datetime.now(singaporeTimezone) + timedelta(days=1)
+        self.todayTime = datetime.now(self.singaporeTimezone)
+        self.tomorrowTime = datetime.now(self.singaporeTimezone) + timedelta(days=1)
 
-DateToday = todayTime.strftime("%Y-%m-%d")
-DateTomorrow = tomorrowTime.strftime("%Y-%m-%d")
+        self.DateToday = self.todayTime.strftime("%Y-%m-%d")
+        self.DateTomorrow = self.tomorrowTime.strftime("%Y-%m-%d")
 
-DatetimeToday = todayTime.strftime("%Y-%m-%d 00:00:00")
-DatetimeTodayMidnight = todayTime.strftime("%Y-%m-%d 23:59:59")
+        self.DatetimeToday = self.todayTime.strftime("%Y-%m-%d 00:00:00")
+        self.DatetimeTodayMidnight = self.todayTime.strftime("%Y-%m-%d 23:59:59")
 
-DatetimeTomorrow = tomorrowTime.strftime("%Y-%m-%d 00:00:00")
-DatetimeTomorrowMidnight = tomorrowTime.strftime("%Y-%m-%d 23:59:59")
-
-def getCalendarResponse():
-    CustomReplyArray = [
-        # [KeyboardButton("Calendar (PDF)")],
-        [KeyboardButton("What's up today")],
-        [KeyboardButton("What's up tomorrow")],
-        [KeyboardButton("Home")]
-    ]
-    CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
-    response = Response(text="What's happenin",
-                        has_markup=True, reply_markup=CustomReply)
-    return response
-
-
-def getCalendarPDF():
-    return Response(text="Some error has occured, or this feature has not yet been implemented", has_markup=True, reply_markup=None)
-
-
-def getTodayEvent():
-    todayEvents = db.engine.execute(
-        "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(DatetimeToday, DatetimeTodayMidnight)
-    )
-
-    todayEventsDescription = ""
+        self.DatetimeTomorrow = self.tomorrowTime.strftime("%Y-%m-%d 00:00:00")
+        self.DatetimeTomorrowMidnight = self.tomorrowTime.strftime("%Y-%m-%d 23:59:59")
     
-    for event in todayEvents:
-        todayEventsDescription += (getEventDescription(event))
+    def getEventDescription(self, event):
+        """
+        Returns a descriptive string for an event object
+        """
+        descriptiveString = (
+                "Event Date and Time: " + event.datetime.strftime("%d - %b, %H:%M") + "\n\n" +
+                "Event Venue: " + event.venue + "\n\n" +
+                event.description +"\n\n"
+            )
+        return descriptiveString
+
+    def getCalendarResponse(self):
+        CustomReplyArray = [
+            # [KeyboardButton("Calendar (PDF)")],
+            [KeyboardButton("What's up today")],
+            [KeyboardButton("What's up tomorrow")],
+            [KeyboardButton("Home")]
+        ]
+        CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
+        response = Response(text="Check out what is happening today or tomorrow",
+                            has_markup=True, reply_markup=CustomReply)
+        return response
     
-    if todayEventsDescription:
-        return Response(text=todayEventsDescription, has_markup=True, reply_markup=None)
-
-    return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
-
-
-def getTomorrowEvent():
-    tomorrowEvents = db.engine.execute(
-        "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(DatetimeTomorrow, DatetimeTomorrowMidnight)
-    )
-
-    tomorrowEventsDescription = ""
-    
-    for event in tomorrowEvents:
-        tomorrowEventsDescription += (getEventDescription(event))
-    
-    if tomorrowEventsDescription:
-        return Response(text=tomorrowEventsDescription, has_markup=True, reply_markup=None)
-
-    return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
-
-
-def getEventDescription(event):
-    """
-    Returns a descriptive string for an event object
-    """
-    descriptiveString = (
-            "Event Date and Time: " + event.datetime.strftime("%d - %b, %H:%M") + "\n\n" +
-            "Event Venue: " + event.venue + "\n\n" +
-            event.description +"\n\n"
+    def getTodayEvent(self):
+        todayEvents = db.engine.execute( 
+            "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(self.DatetimeToday, self.DatetimeTodayMidnight)
         )
-    return descriptiveString
+
+        todayEventsDescription = ""
+        
+        for event in todayEvents:
+            todayEventsDescription += (self.getEventDescription(event))
+        
+        if todayEventsDescription:
+            return Response(text=todayEventsDescription, has_markup=True, reply_markup=None)
+
+        return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
+
+    def getTomorrowEvent(self):
+        tomorrowEvents = db.engine.execute(
+            "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(self.DatetimeTomorrow, self.DatetimeTomorrowMidnight)
+        )
+        tomorrowEventsDescription = ""
+        
+        for event in tomorrowEvents:
+            tomorrowEventsDescription += (self.getEventDescription(event))
+        
+        if tomorrowEventsDescription:
+            return Response(text=tomorrowEventsDescription, has_markup=True, reply_markup=None)
+
+        return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
+
+
+
+        
+
+
+
+
