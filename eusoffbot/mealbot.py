@@ -4,11 +4,14 @@ from eusoffbot.response import Response
 from datetime import datetime, timedelta
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 
+import pytz
 """
-Define date variables
+Define date variables and with timezone specifed
 """
-todayTime = datetime.now()
-tomorrowTime = datetime.now() + timedelta(days=1)
+singaporeTimezone = pytz.timezone("Asia/Singapore")
+
+todayTime = datetime.now(singaporeTimezone)
+tomorrowTime = datetime.now(singaporeTimezone) + timedelta(days=1)
 
 DateToday = todayTime.strftime("%Y-%m-%d")
 DateTomorrow = tomorrowTime.strftime("%Y-%m-%d")
@@ -32,8 +35,7 @@ def getTodayBreakfast():
     """
     This method queries the DB for breakfast with today's date
     """
-    todayBreakfast = Breakfast.query.filter(
-        Breakfast.date == DateToday).first()
+    todayBreakfast = Breakfast.query.filter(Breakfast.date == DateToday).first()
     if todayBreakfast:
         return Response(text=todayBreakfast.toString(), has_markup=True, reply_markup=None)
 

@@ -6,12 +6,15 @@ from datetime import datetime, timedelta
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 from sqlalchemy import between, select
 
+import pytz
 
 """
 Define date variables
 """
-todayTime = datetime.now()
-tomorrowTime = datetime.now() + timedelta(days=1)
+singaporeTimezone = pytz.timezone("Asia/Singapore")
+
+todayTime = datetime.now(singaporeTimezone)
+tomorrowTime = datetime.now(singaporeTimezone) + timedelta(days=1)
 
 DateToday = todayTime.strftime("%Y-%m-%d")
 DateTomorrow = tomorrowTime.strftime("%Y-%m-%d")
