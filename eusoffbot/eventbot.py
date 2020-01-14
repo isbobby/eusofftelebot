@@ -1,5 +1,6 @@
 from eusoffweb.models import Event
 from eusoffbot.response import Response
+from eusoffbot.timebot import TimeBot
 from eusoffweb import db
 
 from datetime import datetime, timedelta
@@ -26,6 +27,8 @@ class EventBot():
 
         self.DatetimeTomorrow = self.tomorrowTime.strftime("%Y-%m-%d 00:00:00")
         self.DatetimeTomorrowMidnight = self.tomorrowTime.strftime("%Y-%m-%d 23:59:59")
+
+        self.timebot = TimeBot()
     
     def getEventDescription(self, event):
         """
@@ -38,15 +41,39 @@ class EventBot():
             )
         return descriptiveString
 
+    def getEventByDay(self, day):
+        # test
+        day = "Wednesday"
+        
+        datetime_of_given_day = self.timebot.getThisWeekDatetimeByDay(day)
+
+        start_of_given_day = self.timebot.formatStartOfDay(datetime_of_given_day)
+        end_of_given_day = self.timebot.formatEndOfDay(datetime_of_given_day)
+
+        events_on_this_day = db.engine.execute( 
+            "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(start_of_given_day, end_of_given_day)
+        )
+
+        event_description = ""
+
+        for event in events_on_this_day:
+            event_description += (self.getEventDescription(event))
+        
+        if event_description:
+            return Response(text=event_description, has_markup=True, reply_markup=None)
+
+        return Response(text="Seems like nothing is happening this day", has_markup=True, reply_markup=None)
+
     def getCalendarResponse(self):
         CustomReplyArray = [
             # [KeyboardButton("Calendar (PDF)")],
-            [KeyboardButton("What's up today")],
-            [KeyboardButton("What's up tomorrow")],
-            [KeyboardButton("Home")]
+            [KeyboardButton("Monday"), KeyboardButton("Tuesday")],
+            [KeyboardButton("Wednesday"), KeyboardButton("Thursday")],
+            [KeyboardButton("Friday"), KeyboardButton("Saturday")],
+            [KeyboardButton("Sunday"), KeyboardButton("Home")],
         ]
         CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
-        response = Response(text="Check out what is happening today or tomorrow",
+        response = Response(text="See what's happening this week",
                             has_markup=True, reply_markup=CustomReply)
         return response
     
@@ -54,7 +81,6 @@ class EventBot():
         todayEvents = db.engine.execute( 
             "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(self.DatetimeToday, self.DatetimeTodayMidnight)
         )
-
         todayEventsDescription = ""
         
         for event in todayEvents:

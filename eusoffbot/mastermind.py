@@ -34,8 +34,23 @@ def getResponse(message):
         response = mealBot.getTomorrowDinner()
 
     # Event related
-    elif (message.text == "Calendar and Fixture 📆"):
+    elif (message.text == "Calendar & Events 📆"):
         response = eventBot.getCalendarResponse()
+
+    elif (message.text == "Monday"):
+        response = eventBot.getEventByDay("Monday")
+    elif (message.text == "Tuesday"):
+        response = eventBot.getEventByDay("Tuesday")
+    elif (message.text == "Wednesday"):
+        response = eventBot.getEventByDay("Wednesday")
+    elif (message.text == "Thursday"):
+        response = eventBot.getEventByDay("Thursday")
+    elif (message.text == "Friday"):
+        response = eventBot.getEventByDay("Friday")
+    elif (message.text == "Saturday"):
+        response = eventBot.getEventByDay("Saturday")
+    elif (message.text == "Sunday"):
+        response = eventBot.getEventByDay("Sunday")
 
     elif (message.text == "What's up today"):
         response = eventBot.getTodayEvent()
