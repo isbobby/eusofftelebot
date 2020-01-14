@@ -42,8 +42,6 @@ class EventBot():
         return descriptiveString
 
     def getEventByDay(self, day):
-        # test
-        day = "Wednesday"
         
         datetime_of_given_day = self.timebot.getThisWeekDatetimeByDay(day)
 

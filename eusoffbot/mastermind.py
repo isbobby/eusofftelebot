@@ -38,19 +38,19 @@ def getResponse(message):
         response = eventBot.getCalendarResponse()
 
     elif (message.text == "Monday"):
-        response = eventBot.getEventByDay("Monday")
+        response = eventBot.getEventByDay(day="Monday")
     elif (message.text == "Tuesday"):
-        response = eventBot.getEventByDay("Tuesday")
+        response = eventBot.getEventByDay(day="Tuesday")
     elif (message.text == "Wednesday"):
-        response = eventBot.getEventByDay("Wednesday")
+        response = eventBot.getEventByDay(day="Wednesday")
     elif (message.text == "Thursday"):
-        response = eventBot.getEventByDay("Thursday")
+        response = eventBot.getEventByDay(day="Thursday")
     elif (message.text == "Friday"):
-        response = eventBot.getEventByDay("Friday")
+        response = eventBot.getEventByDay(day="Friday")
     elif (message.text == "Saturday"):
-        response = eventBot.getEventByDay("Saturday")
+        response = eventBot.getEventByDay(day="Saturday")
     elif (message.text == "Sunday"):
-        response = eventBot.getEventByDay("Sunday")
+        response = eventBot.getEventByDay(day="Sunday")
 
     elif (message.text == "What's up today"):
         response = eventBot.getTodayEvent()
