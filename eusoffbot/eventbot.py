@@ -35,8 +35,8 @@ class EventBot():
         Returns a descriptive string for an event object
         """
         descriptiveString = (
-                "Event Date and Time: " + event.datetime.strftime("%d - %b, %H:%M") + "\n\n" +
-                "Event Venue: " + event.venue + "\n\n" +
+                "Event Date and Time: " + event.datetime.strftime("%d - %b, %H:%M") + "\n" +
+                "Event Venue: " + event.venue + "\n" +
                 event.description +"\n\n"
             )
         return descriptiveString
