@@ -76,7 +76,7 @@ def getResponse(message):
 def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
-        [KeyboardButton("Calendar and Fixture 📆")],
+        [KeyboardButton("Calendar & Events 📆")],
         [KeyboardButton("Eusoff Publications 📩")],
         [KeyboardButton("Home")]
     ]
