@@ -42,7 +42,10 @@ class EventBot():
         return descriptiveString
 
     def getEventByDay(self, day):
-        
+        """
+        Takes in a day argument and queries for the events happening on this day.
+        Then return these events as a string to the users.
+        """
         datetime_of_given_day = self.timebot.getThisWeekDatetimeByDay(day)
 
         start_of_given_day = self.timebot.formatStartOfDay(datetime_of_given_day)
@@ -105,6 +108,11 @@ class EventBot():
 
         return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
 
+    def submitEvent(self, event_detail):
+        """
+        This method allows users to submit a event, which will be forwarded to Bobby for database logging
+        """ 
+        return 1
 
 
         

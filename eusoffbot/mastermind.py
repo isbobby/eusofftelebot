@@ -10,6 +10,7 @@ eventBot = EventBot()
 publicationBot = PublicationBot()
 mealBot = MealBot()
 
+
 def getResponse(message):
     """
     Calls the corresponding methods for responses users enter
@@ -39,16 +40,22 @@ def getResponse(message):
 
     elif (message.text == "Monday"):
         response = eventBot.getEventByDay(day="Monday")
+
     elif (message.text == "Tuesday"):
         response = eventBot.getEventByDay(day="Tuesday")
+
     elif (message.text == "Wednesday"):
         response = eventBot.getEventByDay(day="Wednesday")
+
     elif (message.text == "Thursday"):
         response = eventBot.getEventByDay(day="Thursday")
+
     elif (message.text == "Friday"):
         response = eventBot.getEventByDay(day="Friday")
+
     elif (message.text == "Saturday"):
         response = eventBot.getEventByDay(day="Saturday")
+        
     elif (message.text == "Sunday"):
         response = eventBot.getEventByDay(day="Sunday")
 
@@ -73,6 +80,7 @@ def getResponse(message):
 
     return response
 
+
 def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
@@ -84,6 +92,7 @@ def getHomeResponse():
     response = Response(text="Bringing you home",
                         has_markup=True, reply_markup=CustomReply)
     return response
+
 
 def getErrorResponse():
     return Response(text="Sorry, I don't recognize this command, try /start", has_markup=True, reply_markup=None)
