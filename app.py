@@ -25,7 +25,7 @@ def respond():
     text = update.message.text.encode('utf-8').decode()
     
     #Print to terminal
-    info = "got text message: " + text + " from " + user
+    info = "got text message: " + text + " from " + user.username
     print(info)
     response = getResponse(update.message)
     

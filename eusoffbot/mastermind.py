@@ -34,7 +34,7 @@ def getResponse(message):
         response = mealBot.getTomorrowDinner()
 
     # Event related
-    elif (message.text == "Calendar & Events 📆"):
+    elif (message.text == "Events this week 📆"):
         response = eventBot.getCalendarResponse()
 
     elif (message.text == "Monday"):
@@ -76,7 +76,7 @@ def getResponse(message):
 def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
-        [KeyboardButton("Calendar & Events 📆")],
+        [KeyboardButton("Events this week 📆")],
         [KeyboardButton("Eusoff Publications 📩")],
         [KeyboardButton("Home")]
     ]
