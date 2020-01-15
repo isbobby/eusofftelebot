@@ -35,7 +35,7 @@ class EventBot():
         Returns a descriptive string for an event object
         """
         descriptiveString = (
-                "Event Date and Time: " + event.datetime.strftime("%d - %b, %H:%M") + "\n" +
+                "Event Time: " + event.datetime.strftime("%H:%M") + "\n" +
                 "Event Venue: " + event.venue + "\n" +
                 event.description +"\n\n"
             )
@@ -52,12 +52,14 @@ class EventBot():
             "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(start_of_given_day, end_of_given_day)
         )
 
-        event_description = ""
+        event_description = "Event(s) on " + day
+        has_event = False 
 
         for event in events_on_this_day:
             event_description += (self.getEventDescription(event))
+            has_event = True
         
-        if event_description:
+        if has_event:
             return Response(text=event_description, has_markup=True, reply_markup=None)
 
         return Response(text="Seems like nothing is happening this day", has_markup=True, reply_markup=None)
