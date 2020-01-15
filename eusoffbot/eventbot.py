@@ -35,8 +35,8 @@ class EventBot():
         Returns a descriptive string for an event object
         """
         descriptiveString = (
-                "Event Time: " + event.datetime.strftime("%H:%M") + "\n" +
-                "Event Venue: " + event.venue + "\n" +
+                "Time: " + event.datetime.strftime("%H:%M") + "\n" +
+                "Venue: " + event.venue + "\n" +
                 event.description +"\n\n"
             )
         return descriptiveString
@@ -52,7 +52,7 @@ class EventBot():
             "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(start_of_given_day, end_of_given_day)
         )
 
-        event_description = "Event(s) on " + day
+        event_description = "Event(s) on " + day + "\n\n"
         has_event = False 
 
         for event in events_on_this_day:
