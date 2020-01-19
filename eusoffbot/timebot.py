@@ -28,7 +28,7 @@ class TimeBot():
             This method takes in a day ( Monday, Tuesday ...) string as an argument, 
             and returns the raw datetime object of this day in the current week
         """
-        day_difference = datetime.now().weekday()
+        day_difference = todayTime.weekday()
         print("Day difference is " + str(day_difference))
 
         MonDatetime = datetime.now(self.singaporeTimezone) - timedelta(days=day_difference)
