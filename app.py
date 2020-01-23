@@ -19,7 +19,7 @@ def respond():
     # retrieve the message in JSON and then transform it to the Telegram object
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
-    
+
     msg_id = update.message.message_id
     user = update.message.from_user 
     
@@ -30,7 +30,8 @@ def respond():
         info = "got text message: " + text + " from " + user.username
         print(info)
     
-    response = getResponse(update.message)
+    if update.message:
+        response = getResponse(update.message)
     
     if (response.has_markup):
         bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
