@@ -16,27 +16,27 @@ app = create_app()
 def respond():
     # retrieve the message in JSON and then transform it to the Telegram object
     all_updates = bot.getUpdates()
-    print(all_updates)
-    update = telegram.Update.de_json(request.get_json(force=True), bot)
-    chat_id = update.message.chat.id
+    
+    # update = telegram.Update.de_json(request.get_json(force=True), bot)
+    # chat_id = update.message.chat.id
 
-    msg_id = update.message.message_id
-    user = update.message.from_user 
+    # msg_id = update.message.message_id
+    # user = update.message.from_user 
     
-    text = update.message.text.encode('utf-8').decode()
+    # text = update.message.text.encode('utf-8').decode()
     
-    # Print to terminal 
-    if user.username:
-        info = "got text message: " + text + " from " + user.username
-        print(info)
+    # # Print to terminal 
+    # if user.username:
+    #     info = "got text message: " + text + " from " + user.username
+    #     print(info)
     
-    if update.message:
-        response = getResponse(update.message)
+    # if update.message:
+    #     response = getResponse(update.message)
     
-    if (response.has_markup):
-        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
-    else:
-        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
+    # if (response.has_markup):
+    #     bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
+    # else:
+    #     bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
     return 1
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
