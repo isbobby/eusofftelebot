@@ -33,9 +33,15 @@ def respond():
         response = getResponse(update.message)
         
         if response.has_markup:
-            bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
+            try:
+                bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
+            except:
+                print("message is lost, bot has no target to reply")
         else:
-            bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
+            try:
+                bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
+            except:
+                print("message is lost, bot has no target to reply")
 
     return 'ok'
 
