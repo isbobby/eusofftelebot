@@ -21,7 +21,7 @@ def respond():
     try:
         update = telegram.Update.de_json(request.get_json(force=True), bot)
     except:
-        # print("some error has occured internally")
+        print("some error has occured internally")
 
     
     # update = telegram.Update.de_json(request.get_json(force=True), bot)
