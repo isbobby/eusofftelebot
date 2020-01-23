@@ -12,32 +12,30 @@ bot = telegram.Bot(token=TOKEN)
 
 app = create_app()
 
-from eusoffweb.models import Breakfast
-
 @app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
     # retrieve the message in JSON and then transform it to the Telegram object
-    update = telegram.Update.de_json(request.get_json(force=True), bot)
-    chat_id = update.message.chat.id
+    # update = telegram.Update.de_json(request.get_json(force=True), bot)
+    # chat_id = update.message.chat.id
 
-    msg_id = update.message.message_id
-    user = update.message.from_user 
+    # msg_id = update.message.message_id
+    # user = update.message.from_user 
     
-    text = update.message.text.encode('utf-8').decode()
+    # text = update.message.text.encode('utf-8').decode()
     
-    # Print to terminal 
-    if user.username:
-        info = "got text message: " + text + " from " + user.username
-        print(info)
+    # # Print to terminal 
+    # if user.username:
+    #     info = "got text message: " + text + " from " + user.username
+    #     print(info)
     
-    if update.message:
-        response = getResponse(update.message)
+    # if update.message:
+    #     response = getResponse(update.message)
     
-    if (response.has_markup):
-        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
-    else:
-        bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
-    return 'ok'
+    # if (response.has_markup):
+    #     bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
+    # else:
+    #     bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
+    return 1
 
 @app.route('/setwebhook', methods=['GET', 'POST'])
 def set_webhook():
