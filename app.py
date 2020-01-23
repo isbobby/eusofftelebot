@@ -16,7 +16,13 @@ app = create_app()
 def respond():
     # retrieve the message in JSON and then transform it to the Telegram object
     
-    update = telegram.Update.de_json(request.get_json(force=True), bot)
+    # for overwhelming updates, clear the update attemp (this line below)
+    # and have the method return 1 to clear all pending updates
+    try:
+        update = telegram.Update.de_json(request.get_json(force=True), bot)
+    except:
+        print("some error has occured internally")
+
     
     # update = telegram.Update.de_json(request.get_json(force=True), bot)
 
