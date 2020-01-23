@@ -18,27 +18,27 @@ def respond():
     
     # for overwhelming updates, clear the update attemp (this line below)
     # and have the method return 1 to clear all pending updates
-    try:
-        update = telegram.Update.de_json(request.get_json(force=True), bot)
-    except:
-        print("some error has occured internally")
+    # try:
+    #     update = telegram.Update.de_json(request.get_json(force=True), bot)
+    # except:
+    #     print("some error has occured internally")
 
     
-    # update = telegram.Update.de_json(request.get_json(force=True), bot)
+    # # update = telegram.Update.de_json(request.get_json(force=True), bot)
 
-    if update.message:
-        chat_id = update.message.chat.id
-        msg_id = update.message.message_id
-        user = update.message.from_user 
-        text = update.message.text.encode('utf-8').decode()
-        info = "got text message: " + text + " from " + user.username
-        print(info)
-        response = getResponse(update.message)
+    # if update.message:
+    #     chat_id = update.message.chat.id
+    #     msg_id = update.message.message_id
+    #     user = update.message.from_user 
+    #     text = update.message.text.encode('utf-8').decode()
+    #     info = "got text message: " + text + " from " + user.username
+    #     print(info)
+    #     response = getResponse(update.message)
         
-        if (response and response.has_markup):
-            bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
-        else:
-            bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
+    #     if (response and response.has_markup):
+    #         bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id, reply_markup=response.reply_markup)
+    #     else:
+    #         bot.sendMessage(chat_id=chat_id, text=response.text, reply_to_message_id=msg_id)
 
     return 'ok'
 
