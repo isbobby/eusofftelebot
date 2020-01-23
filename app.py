@@ -15,6 +15,8 @@ app = create_app()
 @app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
     # retrieve the message in JSON and then transform it to the Telegram object
+    all_updates = bot.getUpdates()
+    print(all_updates)
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
 
