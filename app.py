@@ -18,7 +18,7 @@ def respond():
     
     # update = telegram.Update.de_json(request.get_json(silent=True), bot)
     
-    update = telegram.Update.de_json(request.get_json(force=True), bot)
+    # update = telegram.Update.de_json(request.get_json(force=True), bot)
 
     # if update.message:
     #     chat_id = update.message.chat.id
