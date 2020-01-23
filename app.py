@@ -19,6 +19,7 @@ def respond():
     # retrieve the message in JSON and then transform it to the Telegram object
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
+    
     msg_id = update.message.message_id
     user = update.message.from_user 
     
