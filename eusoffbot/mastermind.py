@@ -75,6 +75,10 @@ def getResponse(message):
     elif (message.text == "Eusoffworks Facebook"):
         response = publicationBot.getEusoffWorksFB()
 
+    # Emergency annoucment 2020
+    elif (message.text == "Annoucements❗️"):
+        response = publicationBot.getNCOVAnnoucement()
+
     else:
         response = getErrorResponse()
 
@@ -83,8 +87,8 @@ def getResponse(message):
 
 def getHomeResponse():
     CustomReplyArray = [
-        [KeyboardButton("Meal Plan 🍞")],
-        [KeyboardButton("Events this week 📆")],
+        [KeyboardButton("Annoucements❗️")],
+        [KeyboardButton("Meal Plan 🍞"), KeyboardButton("Events this week 📆")],
         [KeyboardButton("Eusoff Publications 📩")],
         [KeyboardButton("Home")]
     ]
