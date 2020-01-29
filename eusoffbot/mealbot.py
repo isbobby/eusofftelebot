@@ -39,6 +39,12 @@ class MealBot():
         This method queries the DB for breakfast with today's date
         """
         todayBreakfast = Breakfast.query.filter(Breakfast.date == self.DateToday).first()
+
+        try: 
+            print(self.DateToday)
+        except:
+            print("Date error")
+
         if todayBreakfast:
             return Response(text=todayBreakfast.toString(), has_markup=True, reply_markup=None)
 
@@ -49,6 +55,12 @@ class MealBot():
         """
         This method queries the DB for dinner with today's date
         """
+
+        try: 
+            print(self.DateToday)
+        except:
+            print("Date error")
+
         todayDinner = Dinner.query.filter(Dinner.date == self.DateToday).first()
         if todayDinner:
             return Response(text=todayDinner.toString(), has_markup=True, reply_markup=None)
@@ -60,6 +72,12 @@ class MealBot():
         """
         This method queries the DB for breakfast with tomorrow's date
         """
+
+        try: 
+            print(self.DateTomorrow)
+        except:
+            print("Date error")
+
         tomorrowBreakfast = Breakfast.query.filter(
             Breakfast.date == self.DateTomorrow).first()
         if tomorrowBreakfast:
@@ -72,6 +90,12 @@ class MealBot():
         """
         This method queries the DB for dinner with tomorrow's date
         """
+
+        try: 
+            print(self.DateTomorrow)
+        except:
+            print("Date error")
+            
         tomorrowDinner = Dinner.query.filter(Dinner.date == self.DateTomorrow).first()
         if tomorrowDinner:
             return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)

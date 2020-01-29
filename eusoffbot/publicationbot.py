@@ -25,5 +25,5 @@ class PublicationBot():
     def getEusoffWorksFB(self):
         return Response(text="https://www.facebook.com/pg/EHeusoffworks/photos", has_markup=True, reply_markup=None)    
 
-    def getNCOVAnnoucement(self):
+    def getNCOVAnnonucement(self):
         return Response(text="URGENT: Please click on https://emergency.nus.edu.sg/circulars to access an important NUS advisory regarding the Novel Coronavirus Pneumonia.", has_markup=True, reply_markup=None)    

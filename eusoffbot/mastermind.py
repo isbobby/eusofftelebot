@@ -77,7 +77,7 @@ def getResponse(message):
 
     # Emergency annoucment 2020
     elif (message.text == "Announcement❗️"):
-        response = publicationBot.getNCOVAnnoucement()
+        response = publicationBot.getNCOVAnnonucement()
 
     else:
         response = getErrorResponse()
