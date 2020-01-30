@@ -52,36 +52,36 @@ class PublicationBot():
     def getNUSBus(self):
         textReply = """
         A1/A2
-        Mon - Sat
-        7:15 AM - 11:00 PM
-        Sunday/Public Holidays
-        9:00 AM - 11:00 PM
+    Mon - Sat
+    7:15 AM - 11:00 PM
+    Sunday/Public Holidays
+    9:00 AM - 11:00 PM
         
-        B1/B2
-        Mon - Fri 
-        7:15 AM - 11:00 PM
-        Sat 
-        9:00 AM - 7:00 PM
-        No service on Sunday/Public Holidays
+    B1/B2
+    Mon - Fri 
+    7:15 AM - 11:00 PM
+    Sat 
+    9:00 AM - 7:00 PM
+    No service on Sunday/Public Holidays
 
-        C:
-        Mon - Fri 
-        7:20 AM - 11:00 PM
-        Sat 
-        7:40 AM - 7:00 PM
-        No service on Sunday/Public Holidays
+    C:
+    Mon - Fri 
+    7:20 AM - 11:00 PM
+    Sat 
+    7:40 AM - 7:00 PM
+    No service on Sunday/Public Holidays
 
-        D1/D2:
-        Mon - Sat 
-        7:15 AM - 11:00 PM
-        Sunday/Public Holidays 
-        9:15 AM - 11:00 PM
+    D1/D2:
+    Mon - Sat 
+    7:15 AM - 11:00 PM
+    Sunday/Public Holidays 
+    9:15 AM - 11:00 PM
 
-        BTC:
-        Mon - Fri
-        7:20 AM - 9:30 PM
-        Sat
-        8:30 AM - 12:30 PM
-        No service on Sunday/Public Holidays
+    BTC:
+    Mon - Fri
+    7:20 AM - 9:30 PM
+    Sat
+    8:30 AM - 12:30 PM
+    No service on Sunday/Public Holidays
         """
         return Response(text=textReply, has_markup=True, reply_markup=None)
