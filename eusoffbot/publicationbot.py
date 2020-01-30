@@ -41,37 +41,47 @@ class PublicationBot():
         return response
 
     def getDiningHallTime(self):
-        return Response(text="Breakfast [7:00 AM - 10 : 00 AM] \nDinner [5:30 PM - 9 : 00 PM]", has_markup=True, reply_markup=None)
+        return Response(text="Breakfast \n7:00 AM - 10:00 AM\n\nDinner \n5:30 PM - 9:00 PM", has_markup=True, reply_markup=None)
 
     def getHallOfficeTime(self):
-        return Response(text="Mon - Thur [8:30 AM - 6:00 PM]\nFriday [8:30 AM - 5:30 PM]\nLunch Break [1:00 PM - 2:00 PM]\nClosed on weekends and public holidays.", has_markup=True, reply_markup=None)
+        return Response(text="Mon - Thur\n8:30 AM - 6:00 PM\n\nFriday\n8:30 AM - 5:30 PM\n\nLunch Break\n1:00 PM - 2:00 PM\n\nClosed on weekends and public holidays.", has_markup=True, reply_markup=None)
 
     def getCentralLibraryTime(self):
-        return Response(text="Mon - Fri [8:30 AM - 9:00 PM]\nSat [10:00 AM - 5:00 PM]\nClosed on Sunday", has_markup=True, reply_markup=None)
+        return Response(text="Mon - Fri\n8:30 AM - 9:00 PM\n\nSat 10:00 AM - 5:00 PM\nClosed on Sunday", has_markup=True, reply_markup=None)
 
     def getNUSBus(self):
         textReply = """
-        A1/A2:
-        Mon - Sat [7:15 AM - 11:00 PM]
-        Sunday/Public Holidays [9:00 AM - 11:00 PM]
-
-        B1/B2:
-        Mon - Fri [7:15 AM - 11:00 PM]
-        Sat [9:00 AM - 7:00 PM]
-        Sunday/Public Holidays [No service]
+        A1/A2
+        Mon - Sat
+        7:15 AM - 11:00 PM
+        Sunday/Public Holidays
+        9:00 AM - 11:00 PM
+        
+        B1/B2
+        Mon - Fri 
+        7:15 AM - 11:00 PM
+        Sat 
+        9:00 AM - 7:00 PM
+        No service on Sunday/Public Holidays
 
         C:
-        Mon - Fri [7:20 AM - 11:00 PM]
-        Sat [7:40 AM - 7:00 PM]
-        Sunday/Public Holidays [No service]
+        Mon - Fri 
+        7:20 AM - 11:00 PM
+        Sat 
+        7:40 AM - 7:00 PM
+        No service on Sunday/Public Holidays
 
         D1/D2:
-        Mon - Sat [7:15 AM - 11:00 PM]
-        Sunday/Public Holidays [9:15 AM - 11:00 PM]
+        Mon - Sat 
+        7:15 AM - 11:00 PM
+        Sunday/Public Holidays 
+        9:15 AM - 11:00 PM
 
         BTC:
-        Mon - Fri [7:20 AM - 9:30 PM]
-        Sat [8:30 AM - 12:30 PM]
-        Sunday/Public Holidays [No service]
+        Mon - Fri
+        7:20 AM - 9:30 PM
+        Sat
+        8:30 AM - 12:30 PM
+        No service on Sunday/Public Holidays
         """
         return Response(text=textReply, has_markup=True, reply_markup=None)
