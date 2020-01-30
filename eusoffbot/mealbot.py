@@ -85,11 +85,11 @@ class MealBot():
         """
         date = self.tb.getTomorrowDate()
         try: 
-            print(self.date)
+            print(date)
         except:
             print("Date error")
             
-        tomorrowDinner = Dinner.query.filter(Dinner.date == self.date).first()
+        tomorrowDinner = Dinner.query.filter(Dinner.date == date).first()
         if tomorrowDinner:
             return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)
 
