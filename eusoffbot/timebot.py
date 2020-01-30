@@ -25,7 +25,7 @@ class TimeBot():
 
     def refreshDatetime(self):
         """
-        A method to initialize date variables
+        A method to refresh date variables
         """
         self.singaporeTimezone = pytz.timezone("Asia/Singapore")
 
