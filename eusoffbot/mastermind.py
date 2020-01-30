@@ -69,6 +69,21 @@ def getResponse(message):
     elif (message.text == "Eusoffworks Facebook"):
         response = publicationBot.getEusoffWorksFB()
 
+    elif (message.text == "Operation Hours"):
+        response = publicationBot.getOperationHoursMenu()
+
+    elif (message.text == "Dining Hall"):
+        response = publicationBot.getDiningHallTime()
+
+    elif (message.text == "Central Library"):
+        response = publicationBot.getCentralLibraryTime()
+
+    elif (message.text == "Hall Office"):
+        response = publicationBot.getHallOfficeTime()
+
+    elif (message.text == "NUS Buses"):
+        response = publicationBot.getNUSBus()
+
     # Emergency annoucment 2020
     elif (message.text == "Announcement❗️"):
         response = publicationBot.getNCOVAnnonucement()
@@ -78,12 +93,11 @@ def getResponse(message):
 
     return response
 
-
 def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
-        [KeyboardButton("Announcement❗️")],
         [KeyboardButton("Events this week 📆"), KeyboardButton("Eusoff Publications 📩")],
+        [KeyboardButton("Announcement❗️"), KeyboardButton("Operation Hours")],
         [KeyboardButton("Home")]
     ]
     CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
