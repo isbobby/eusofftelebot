@@ -69,7 +69,7 @@ def getResponse(message):
     elif (message.text == "Eusoffworks Facebook"):
         response = publicationBot.getEusoffWorksFB()
 
-    elif (message.text == "Operation Hours"):
+    elif (message.text == "Operating Hours"):
         response = publicationBot.getOperationHoursMenu()
 
     elif (message.text == "Dining Hall"):
@@ -97,7 +97,7 @@ def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
         [KeyboardButton("Events this week 📆"), KeyboardButton("Eusoff Publications 📩")],
-        [KeyboardButton("Announcement❗️"), KeyboardButton("Operation Hours")],
+        [KeyboardButton("Announcement❗️"), KeyboardButton("Operating Hours")],
         [KeyboardButton("Home")]
     ]
     CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)
