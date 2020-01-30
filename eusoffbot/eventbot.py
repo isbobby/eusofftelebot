@@ -12,23 +12,9 @@ import pytz
 class EventBot():
     def __init__(self):
         """
-        Define date variables
+        Initialize timebot
         """
-        self.singaporeTimezone = pytz.timezone("Asia/Singapore")
-
-        self.todayTime = datetime.now(self.singaporeTimezone)
-        self.tomorrowTime = datetime.now(self.singaporeTimezone) + timedelta(days=1)
-
-        self.DateToday = self.todayTime.strftime("%Y-%m-%d")
-        self.DateTomorrow = self.tomorrowTime.strftime("%Y-%m-%d")
-
-        self.DatetimeToday = self.todayTime.strftime("%Y-%m-%d 00:00:00")
-        self.DatetimeTodayMidnight = self.todayTime.strftime("%Y-%m-%d 23:59:59")
-
-        self.DatetimeTomorrow = self.tomorrowTime.strftime("%Y-%m-%d 00:00:00")
-        self.DatetimeTomorrowMidnight = self.tomorrowTime.strftime("%Y-%m-%d 23:59:59")
-
-        self.timebot = TimeBot()
+        self.tb = TimeBot()
     
     def getEventDescription(self, event):
         """
@@ -46,10 +32,10 @@ class EventBot():
         Takes in a day argument and queries for the events happening on this day.
         Then return these events as a string to the users.
         """
-        datetime_of_given_day = self.timebot.getThisWeekDatetimeByDay(day)
+        datetime_of_given_day = self.tb.getThisWeekDatetimeByDay(day)
 
-        start_of_given_day = self.timebot.formatStartOfDay(datetime_of_given_day)
-        end_of_given_day = self.timebot.formatEndOfDay(datetime_of_given_day)
+        start_of_given_day = self.tb.formatStartOfDay(datetime_of_given_day)
+        end_of_given_day = self.tb.formatEndOfDay(datetime_of_given_day)
 
         events_on_this_day = db.engine.execute( 
             "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(start_of_given_day, end_of_given_day)
@@ -79,34 +65,6 @@ class EventBot():
         response = Response(text="See what's happening this week",
                             has_markup=True, reply_markup=CustomReply)
         return response
-    
-    def getTodayEvent(self):
-        todayEvents = db.engine.execute( 
-            "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(self.DatetimeToday, self.DatetimeTodayMidnight)
-        )
-        todayEventsDescription = ""
-        
-        for event in todayEvents:
-            todayEventsDescription += (self.getEventDescription(event))
-        
-        if todayEventsDescription:
-            return Response(text=todayEventsDescription, has_markup=True, reply_markup=None)
-
-        return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
-
-    def getTomorrowEvent(self):
-        tomorrowEvents = db.engine.execute(
-            "SELECT * FROM event WHERE datetime BETWEEN '{}' AND '{}';".format(self.DatetimeTomorrow, self.DatetimeTomorrowMidnight)
-        )
-        tomorrowEventsDescription = ""
-        
-        for event in tomorrowEvents:
-            tomorrowEventsDescription += (self.getEventDescription(event))
-        
-        if tomorrowEventsDescription:
-            return Response(text=tomorrowEventsDescription, has_markup=True, reply_markup=None)
-
-        return Response(text="Seems like nothing is happening today", has_markup=True, reply_markup=None)
 
     def submitEvent(self, event_detail):
         """

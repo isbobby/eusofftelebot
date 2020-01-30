@@ -1,5 +1,6 @@
 from eusoffweb.models import Breakfast, Dinner
 from eusoffbot.response import Response
+from eusoffbot.timebot import TimeBot
 
 from datetime import datetime, timedelta
 from telegram import KeyboardButton, ReplyKeyboardMarkup
@@ -9,16 +10,7 @@ import pytz
 
 class MealBot():
     def __init__(self):
-        """
-        Define date variables and with timezone specifed
-        """
-        self.singaporeTimezone = pytz.timezone("Asia/Singapore")
-
-        self.todayTime = datetime.now(self.singaporeTimezone)
-        self.tomorrowTime = datetime.now(self.singaporeTimezone) + timedelta(days=1)
-
-        self.DateToday = self.todayTime.strftime("%Y-%m-%d")
-        self.DateTomorrow = self.tomorrowTime.strftime("%Y-%m-%d")
+        self.tb = TimeBot()
 
     def getMealplanResponse(self):
         CustomReplyArray = [
@@ -38,10 +30,10 @@ class MealBot():
         """
         This method queries the DB for breakfast with today's date
         """
-        todayBreakfast = Breakfast.query.filter(Breakfast.date == self.DateToday).first()
+        todayBreakfast = Breakfast.query.filter(Breakfast.date == self.tb.getTodayDate).first()
 
         try: 
-            print(self.DateToday)
+            print(self.tb.getTodayDate)
         except:
             print("Date error")
 
@@ -57,11 +49,11 @@ class MealBot():
         """
 
         try: 
-            print(self.DateToday)
+            print(self.tb.getTodayDate)
         except:
             print("Date error")
 
-        todayDinner = Dinner.query.filter(Dinner.date == self.DateToday).first()
+        todayDinner = Dinner.query.filter(Dinner.date == self.tb.getTodayDate).first()
         if todayDinner:
             return Response(text=todayDinner.toString(), has_markup=True, reply_markup=None)
 
@@ -74,12 +66,12 @@ class MealBot():
         """
 
         try: 
-            print(self.DateTomorrow)
+            print(self.tb.getTomorrowDate)
         except:
             print("Date error")
 
         tomorrowBreakfast = Breakfast.query.filter(
-            Breakfast.date == self.DateTomorrow).first()
+            Breakfast.date == self.tb.getTomorrowDate).first()
         if tomorrowBreakfast:
             return Response(text=tomorrowBreakfast.toString(), has_markup=True, reply_markup=None)
 
@@ -92,11 +84,11 @@ class MealBot():
         """
 
         try: 
-            print(self.DateTomorrow)
+            print(self.tb.getTomorrowDate)
         except:
             print("Date error")
             
-        tomorrowDinner = Dinner.query.filter(Dinner.date == self.DateTomorrow).first()
+        tomorrowDinner = Dinner.query.filter(Dinner.date == self.tb.getTomorrowDate).first()
         if tomorrowDinner:
             return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)
 

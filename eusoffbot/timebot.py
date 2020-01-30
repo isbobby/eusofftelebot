@@ -23,11 +23,36 @@ class TimeBot():
         self.DatetimeTomorrowMidnight = self.tomorrowTime.strftime(
             "%Y-%m-%d 23:59:59")
 
+    def refreshDatetime(self):
+        """
+        A method to initialize date variables
+        """
+        self.singaporeTimezone = pytz.timezone("Asia/Singapore")
+
+        self.todayTime = datetime.now(self.singaporeTimezone)
+        self.tomorrowTime = datetime.now(
+            self.singaporeTimezone) + timedelta(days=1)
+
+        self.DateToday = self.todayTime.strftime("%Y-%m-%d")
+        self.DateTomorrow = self.tomorrowTime.strftime("%Y-%m-%d")
+
+        self.DatetimeToday = self.todayTime.strftime("%Y-%m-%d 00:00:00")
+        self.DatetimeTodayMidnight = self.todayTime.strftime(
+            "%Y-%m-%d 23:59:59")
+
+        self.DatetimeTomorrow = self.tomorrowTime.strftime("%Y-%m-%d 00:00:00")
+        self.DatetimeTomorrowMidnight = self.tomorrowTime.strftime(
+            "%Y-%m-%d 23:59:59")
+
+
+
     def getThisWeekDatetimeByDay(self, day):
         """
             This method takes in a day ( Monday, Tuesday ...) string as an argument, 
             and returns the raw datetime object of this day in the current week
         """
+        self.refreshDatetime()
+
         day_difference = self.todayTime.weekday()
         print("Day difference is " + str(day_difference))
 
@@ -73,3 +98,15 @@ class TimeBot():
         This method converts a datetime object to YYYY-MM-DD 23:59:59 and return it as a string
         """
         return datetimeObject.strftime("%Y-%m-%d 23:59:59")
+
+    def getTodayDate(self):
+        """
+        Returns the date today in str
+        """
+        return self.DateToday
+
+    def getTomorrowDate(self):
+        """
+        Returns the date today in str
+        """
+        return self.DateTomorrow
