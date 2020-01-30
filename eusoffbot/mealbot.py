@@ -30,10 +30,11 @@ class MealBot():
         """
         This method queries the DB for breakfast with today's date
         """
-        todayBreakfast = Breakfast.query.filter(Breakfast.date == self.tb.getTodayDate).first()
+        date = self.tb.getTodayDate()
+        todayBreakfast = Breakfast.query.filter(Breakfast.date == date).first()
 
         try: 
-            print(self.tb.getTodayDate)
+            print(date)
         except:
             print("Date error")
 
@@ -47,13 +48,13 @@ class MealBot():
         """
         This method queries the DB for dinner with today's date
         """
-
+        date = self.tb.getTodayDate()
         try: 
-            print(self.tb.getTodayDate)
+            print(date)
         except:
             print("Date error")
 
-        todayDinner = Dinner.query.filter(Dinner.date == self.tb.getTodayDate).first()
+        todayDinner = Dinner.query.filter(Dinner.date == date).first()
         if todayDinner:
             return Response(text=todayDinner.toString(), has_markup=True, reply_markup=None)
 
@@ -64,14 +65,14 @@ class MealBot():
         """
         This method queries the DB for breakfast with tomorrow's date
         """
-
+        date = self.tb.getTomorrowDate()
         try: 
-            print(self.tb.getTomorrowDate)
+            print(date)
         except:
             print("Date error")
 
         tomorrowBreakfast = Breakfast.query.filter(
-            Breakfast.date == self.tb.getTomorrowDate).first()
+            Breakfast.date == date).first()
         if tomorrowBreakfast:
             return Response(text=tomorrowBreakfast.toString(), has_markup=True, reply_markup=None)
 
@@ -82,13 +83,13 @@ class MealBot():
         """
         This method queries the DB for dinner with tomorrow's date
         """
-
+        date = self.tb.getTomorrowDate()
         try: 
-            print(self.tb.getTomorrowDate)
+            print(self.date)
         except:
             print("Date error")
             
-        tomorrowDinner = Dinner.query.filter(Dinner.date == self.tb.getTomorrowDate).first()
+        tomorrowDinner = Dinner.query.filter(Dinner.date == self.date).first()
         if tomorrowDinner:
             return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)
 

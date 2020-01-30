@@ -59,12 +59,6 @@ def getResponse(message):
     elif (message.text == "Sunday"):
         response = eventBot.getEventByDay(day="Sunday")
 
-    elif (message.text == "What's up today"):
-        response = eventBot.getTodayEvent()
-
-    elif (message.text == "What's up tomorrow"):
-        response = eventBot.getTomorrowEvent()
-
     # Publication related
     elif (message.text == "Eusoff Publications 📩"):
         response = publicationBot.getPubsResponse()
@@ -87,8 +81,8 @@ def getResponse(message):
 
 def getHomeResponse():
     CustomReplyArray = [
-        [KeyboardButton("Announcement❗️")],
         [KeyboardButton("Meal Plan 🍞")],
+        [KeyboardButton("Announcement❗️")],
         [KeyboardButton("Events this week 📆"), KeyboardButton("Eusoff Publications 📩")],
         [KeyboardButton("Home")]
     ]
