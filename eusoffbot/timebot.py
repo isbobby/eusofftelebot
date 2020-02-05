@@ -103,10 +103,12 @@ class TimeBot():
         """
         Returns the date today in str
         """
+        self.refreshDatetime()
         return self.DateToday
 
     def getTomorrowDate(self):
         """
         Returns the date today in str
         """
+        self.refreshDatetime()
         return self.DateTomorrow
