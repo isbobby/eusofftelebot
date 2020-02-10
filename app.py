@@ -30,7 +30,10 @@ def respond():
         chat_id = update.message.chat.id
         msg_id = update.message.message_id
         user = update.message.from_user 
-        text = update.message.text.encode('utf-8').decode()
+        try:
+            text = update.message.text.encode('utf-8').decode()
+        except:
+            print("no text in the message")
         try:
             info = "got text message: " + text + " from " + user.username
             print(info)
