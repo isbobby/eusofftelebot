@@ -96,8 +96,8 @@ def getResponse(message):
 def getHomeResponse():
     CustomReplyArray = [
         [KeyboardButton("Meal Plan 🍞")],
-        [KeyboardButton("Events this week 📆"), KeyboardButton("Eusoff Publications 📩")],
-        [KeyboardButton("Announcement❗️"), KeyboardButton("Operating Hours⏱")],
+        # [KeyboardButton("Events this week 📆"), KeyboardButton("Eusoff Publications 📩")],
+        # [KeyboardButton("Announcement❗️"), KeyboardButton("Operating Hours⏱")],
         [KeyboardButton("Home")]
     ]
     CustomReply = ReplyKeyboardMarkup(keyboard=CustomReplyArray)

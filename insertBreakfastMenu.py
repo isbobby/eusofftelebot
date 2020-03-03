@@ -3,7 +3,7 @@ from eusoffweb.models import Breakfast
 
 import pandas as pd
 
-breakfastCSV = pd.read_csv("Data Files/Breakfast(1-4).csv")
+breakfastCSV = pd.read_csv("Data Files/Breakfast(sem2).csv")
 
 app = create_app()
 with app.app_context():
