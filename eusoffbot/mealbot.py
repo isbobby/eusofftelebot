@@ -41,7 +41,7 @@ class MealBot():
         if todayBreakfast:
             return Response(text=todayBreakfast.toString(), has_markup=True, reply_markup=None)
 
-        return Response(text="Breakfast is not provided today, or the menu is not yet updated)", has_markup=True, reply_markup=None)
+        return Response(text="Breakfast is not provided today, or the menu has yet to be updated.", has_markup=True, reply_markup=None)
 
 
     def getTodayDinner(self):
@@ -58,7 +58,7 @@ class MealBot():
         if todayDinner:
             return Response(text=todayDinner.toString(), has_markup=True, reply_markup=None)
 
-        return Response(text="Dinner is not provided today, or the menu is not yet updated)", has_markup=True, reply_markup=None)
+        return Response(text="Dinner is not provided today, or the menu has yet to be updated.", has_markup=True, reply_markup=None)
 
 
     def getTomorrowBreakfast(self):
@@ -76,7 +76,7 @@ class MealBot():
         if tomorrowBreakfast:
             return Response(text=tomorrowBreakfast.toString(), has_markup=True, reply_markup=None)
 
-        return Response(text="Breakfast is not provided tomorrow, or the menu is not yet updated)", has_markup=True, reply_markup=None)
+        return Response(text="Breakfast is not provided tomorrow, or the menu has yet to be updated.", has_markup=True, reply_markup=None)
 
 
     def getTomorrowDinner(self):
@@ -93,4 +93,4 @@ class MealBot():
         if tomorrowDinner:
             return Response(text=tomorrowDinner.toString(), has_markup=True, reply_markup=None)
 
-        return Response(text="Dinner is not provided tomorrow, or the menu is not yet updated)", has_markup=True, reply_markup=None)
+        return Response(text="Dinner is not provided tomorrow, or the menu has yet to be updated.", has_markup=True, reply_markup=None)
