@@ -66,7 +66,7 @@ SQLAlchemy-Utils==0.36.1
 telebot==0.0.3
 tornado==6.0.3
 typed-ast==1.4.0
-urllib3==1.25.2
+urllib3==1.25.8
 Werkzeug==0.15.4
 wrapt==1.11.2
 WTForms==2.2.1
