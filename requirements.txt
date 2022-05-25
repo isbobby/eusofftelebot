@@ -47,7 +47,7 @@ psycopg2==2.8.4
 public==2019.4.13
 pycodestyle==2.5.0
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylint==2.4.4
 pyrsistent==0.15.6
 pyTelegramBotAPI==3.6.6
